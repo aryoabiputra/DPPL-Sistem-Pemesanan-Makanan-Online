@@ -1,1 +1,0 @@
-// di edit oleh Aryo
