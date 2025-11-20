@@ -8,9 +8,13 @@ package com.mycompany.sistem.kantin.online;
  *
  * @author aryo
  */
-import javax.swing.table.DefaultTableModel;
 import com.mycompany.sistem.kantin.online.Cart;
 import com.mycompany.sistem.kantin.online.ItemKeranjang;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.JLabel;
 
 public class keranjangPanel extends javax.swing.JPanel {
 
@@ -19,7 +23,27 @@ public class keranjangPanel extends javax.swing.JPanel {
      */
     public keranjangPanel() {
         initComponents();
+        aturStyleTable();
         isiTabelDariCart();
+
+    }
+
+    private void aturStyleTable() {
+        // FONT HEADER
+        JTableHeader header = tabelKeranjang.getTableHeader();
+        header.setFont(new Font("Segoe UI", Font.BOLD, 16));
+
+        // FONT ISI TABEL
+        tabelKeranjang.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        tabelKeranjang.setRowHeight(28);
+
+        // CENTER ISI TABEL (semua kolom)
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+
+        for (int i = 0; i < tabelKeranjang.getColumnCount(); i++) {
+            tabelKeranjang.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
     }
 
     private void isiTabelDariCart() {
@@ -73,8 +97,9 @@ public class keranjangPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tabelKeranjang);
 
         checkoutBtn.setBackground(new java.awt.Color(51, 153, 255));
+        checkoutBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         checkoutBtn.setForeground(new java.awt.Color(255, 255, 255));
-        checkoutBtn.setText("Checkout");
+        checkoutBtn.setText("Pesan");
         checkoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkoutBtnActionPerformed(evt);
@@ -82,6 +107,7 @@ public class keranjangPanel extends javax.swing.JPanel {
         });
 
         btnPesan1.setBackground(new java.awt.Color(51, 153, 255));
+        btnPesan1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnPesan1.setForeground(new java.awt.Color(255, 255, 255));
         btnPesan1.setText("Hapus");
         btnPesan1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +140,7 @@ public class keranjangPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkoutBtn)
                     .addComponent(btnPesan1))
-                .addContainerGap(291, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

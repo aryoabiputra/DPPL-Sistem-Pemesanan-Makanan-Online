@@ -8,11 +8,15 @@ package com.mycompany.sistem.kantin.online;
  *
  * @author aryop
  */
-import java.util.List;
-import javax.swing.table.DefaultTableModel;
 import com.mycompany.sistem.kantin.online.Cart;
 import com.mycompany.sistem.kantin.online.ItemKeranjang;
 import com.mycompany.sistem.kantin.online.DataPesanan;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Font;
+import javax.swing.table.JTableHeader;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.JLabel;
 
 public class checkoutfixed extends javax.swing.JPanel {
 
@@ -21,6 +25,7 @@ public class checkoutfixed extends javax.swing.JPanel {
 
     public checkoutfixed() {
         initComponents();
+        aturStyleTable();
         isiTabelDariCart();
     }
 
@@ -46,6 +51,24 @@ public class checkoutfixed extends javax.swing.JPanel {
         }
     }
 
+    private void aturStyleTable() {
+        // FONT HEADER
+        JTableHeader header = overviewTabel.getTableHeader();
+        header.setFont(new Font("Segoe UI", Font.BOLD, 16));
+
+        // FONT ISI TABEL
+        overviewTabel.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        overviewTabel.setRowHeight(28);
+
+        // CENTER ISI TABEL (semua kolom)
+        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+
+        for (int i = 0; i < overviewTabel.getColumnCount(); i++) {
+            overviewTabel.getColumnModel().getColumn(i).setCellRenderer(centerRenderer);
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,7 +82,6 @@ public class checkoutfixed extends javax.swing.JPanel {
         alamatPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         overviewTabel = new javax.swing.JTable();
         batalBtn = new javax.swing.JButton();
@@ -68,19 +90,16 @@ public class checkoutfixed extends javax.swing.JPanel {
         tunaiBtn = new javax.swing.JButton();
         transferBtn = new javax.swing.JButton();
         qrisBtn = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         alamatPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Alamat Pengantaran");
 
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Jl.Bangau Sakti");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Detail Pesanan");
 
         javax.swing.GroupLayout alamatPanelLayout = new javax.swing.GroupLayout(alamatPanel);
         alamatPanel.setLayout(alamatPanelLayout);
@@ -90,9 +109,8 @@ public class checkoutfixed extends javax.swing.JPanel {
                 .addGap(26, 26, 26)
                 .addGroup(alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1))
+                .addContainerGap(776, Short.MAX_VALUE))
         );
         alamatPanelLayout.setVerticalGroup(
             alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,9 +119,7 @@ public class checkoutfixed extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(39, 39, 39)
-                .addComponent(jLabel4)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         overviewTabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -120,6 +136,8 @@ public class checkoutfixed extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(overviewTabel);
 
+        batalBtn.setBackground(new java.awt.Color(51, 153, 255));
+        batalBtn.setForeground(new java.awt.Color(255, 255, 255));
         batalBtn.setText("Batal");
         batalBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -127,6 +145,8 @@ public class checkoutfixed extends javax.swing.JPanel {
             }
         });
 
+        pesanBtn.setBackground(new java.awt.Color(51, 153, 255));
+        pesanBtn.setForeground(new java.awt.Color(255, 255, 255));
         pesanBtn.setText("Pesan");
         pesanBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,9 +154,11 @@ public class checkoutfixed extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Metode Pembayaran");
 
+        tunaiBtn.setBackground(new java.awt.Color(51, 153, 255));
+        tunaiBtn.setForeground(new java.awt.Color(255, 255, 255));
         tunaiBtn.setText("Tunai");
         metodeButtonGroup.add(tunaiBtn);
         tunaiBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +167,8 @@ public class checkoutfixed extends javax.swing.JPanel {
             }
         });
 
+        transferBtn.setBackground(new java.awt.Color(51, 153, 255));
+        transferBtn.setForeground(new java.awt.Color(255, 255, 255));
         transferBtn.setText(" Transfer Bank");
         metodeButtonGroup.add(transferBtn);
         transferBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -153,6 +177,8 @@ public class checkoutfixed extends javax.swing.JPanel {
             }
         });
 
+        qrisBtn.setBackground(new java.awt.Color(51, 153, 255));
+        qrisBtn.setForeground(new java.awt.Color(255, 255, 255));
         qrisBtn.setText("Qris");
         metodeButtonGroup.add(qrisBtn);
         qrisBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -160,6 +186,10 @@ public class checkoutfixed extends javax.swing.JPanel {
                 qrisBtnActionPerformed(evt);
             }
         });
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Detail Pesanan");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -169,42 +199,40 @@ public class checkoutfixed extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addComponent(jLabel3)
-                .addGap(116, 116, 116)
+                .addGap(18, 18, 18)
                 .addComponent(tunaiBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(transferBtn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(qrisBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(batalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(pesanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
+            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(batalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(pesanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(55, 55, 55))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 887, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(alamatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(tunaiBtn)
                     .addComponent(transferBtn)
-                    .addComponent(qrisBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(qrisBtn)
                     .addComponent(pesanBtn)
                     .addComponent(batalBtn))
-                .addGap(60, 60, 60))
+                .addContainerGap(202, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
