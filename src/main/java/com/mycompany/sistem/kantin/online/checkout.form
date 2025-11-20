@@ -109,7 +109,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Fira Sans" size="18" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Jl. Bangau Sakti , nsabdasbdjabdadsad"/>
+            <Property name="text" type="java.lang.String" value="Jl. Sample"/>
           </Properties>
         </Component>
       </SubComponents>

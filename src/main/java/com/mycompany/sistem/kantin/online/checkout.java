@@ -48,7 +48,7 @@ public class checkout extends javax.swing.JFrame {
         jLabel2.setText("Alamat Pengiriman");
 
         jLabel3.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
-        jLabel3.setText("Jl. Bangau Sakti , nsabdasbdjabdadsad");
+        jLabel3.setText("Jl. Sample");
 
         javax.swing.GroupLayout panelAlamatLayout = new javax.swing.GroupLayout(panelAlamat);
         panelAlamat.setLayout(panelAlamatLayout);

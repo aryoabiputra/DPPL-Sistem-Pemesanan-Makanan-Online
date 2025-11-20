@@ -8,6 +8,9 @@ package com.mycompany.sistem.kantin.online;
  *
  * @author aryo
  */
+import com.mycompany.sistem.kantin.online.Cart;
+import com.mycompany.sistem.kantin.online.ItemKeranjang;
+
 public class detailMenu extends javax.swing.JDialog {
 
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(detailMenu.class.getName());
@@ -20,6 +23,12 @@ public class detailMenu extends javax.swing.JDialog {
         initComponents();
     }
 
+    public void setData(String nama, int harga) {
+        namaDetailLabel.setText(nama);
+        String hargaMakanan = String.valueOf(harga);
+        hargaDetailLabel.setText("Rp " + hargaMakanan);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,18 +38,23 @@ public class detailMenu extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        masukKeranjangBtn = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        namaDetailLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        beliBtn = new javax.swing.JButton();
+        hargaDetailLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Detail Menu");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setText("Tambah");
+        masukKeranjangBtn.setText("Masuk Keranjang");
+        masukKeranjangBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                masukKeranjangBtnActionPerformed(evt);
+            }
+        });
 
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -49,20 +63,20 @@ public class detailMenu extends javax.swing.JDialog {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Fira Sans", 0, 22)); // NOI18N
-        jLabel1.setText("Ayam Geprek");
+        namaDetailLabel.setFont(new java.awt.Font("Fira Sans", 0, 22)); // NOI18N
+        namaDetailLabel.setText("Ayam Geprek");
 
         jLabel2.setText("Warung Kita");
 
-        jButton2.setText("Beli");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        beliBtn.setText("Beli");
+        beliBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                beliBtnActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Fira Sans", 0, 20)); // NOI18N
-        jLabel3.setText("Rp 20.000");
+        hargaDetailLabel.setFont(new java.awt.Font("Fira Sans", 0, 20)); // NOI18N
+        hargaDetailLabel.setText("sample 1000");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,14 +89,14 @@ public class detailMenu extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(namaDetailLabel)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(hargaDetailLabel))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                        .addComponent(masukKeranjangBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(beliBtn)
                         .addGap(32, 32, 32))))
         );
         layout.setVerticalGroup(
@@ -91,15 +105,15 @@ public class detailMenu extends javax.swing.JDialog {
                 .addGap(62, 62, 62)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(namaDetailLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
+                        .addComponent(hargaDetailLabel)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)))
+                            .addComponent(beliBtn)
+                            .addComponent(masukKeranjangBtn)))
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -111,10 +125,68 @@ public class detailMenu extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new checkout().setVisible(true);
-        this.dispose();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void beliBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beliBtnActionPerformed
+        //// 1. Ambil nama dari label
+//        String nama = namaDetailLabel.getText();
+//
+//        // 2. Ambil harga dari label "Rp 10.000" -> "10000"
+//        String hargaText = hargaDetailLabel.getText().replaceAll("[^0-9]", "");
+//        int harga = Integer.parseInt(hargaText);
+//
+//        // 3. Untuk sementara jumlah = 1
+//        int jumlah = 1;
+//
+//        // 4. Tambah ke keranjang
+//        Cart.tambahItem(new ItemKeranjang(nama, harga, jumlah));
+//
+//        // 5. Pindah main panel di HomePengguna ke KeranjangPanel
+//        java.awt.Window owner = getOwner();      // owner = frame yang bikin dialog ini
+//        if (owner instanceof HomePengguna) {
+//            HomePengguna home = (HomePengguna) owner;
+//            home.changeMainPanel(new keranjangPanel());   // nama panel keranjangmu
+//        }
+//
+//        // 6. Tutup dialog detail
+//        dispose();
+// 1. Ambil nama & harga dari label
+    String nama = namaDetailLabel.getText();
+
+        // hargaDetailLabel: contoh "Rp 10.000"
+        String hargaText = hargaDetailLabel.getText()
+                .replace("Rp", "")
+                .replace(".", "")
+                .trim();
+        int harga = Integer.parseInt(hargaText);
+
+        // 2. Tambahkan ke Cart, default jumlah = 1
+        Cart.tambahItem(new ItemKeranjang(nama, harga, 1));
+
+        // 3. Cari parent window (HomePengguna)
+        java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
+
+        // 4. Tutup dialog dulu
+        this.dispose();
+
+        // 5. Kalau parent-nya HomePengguna, ganti main panel ke checkoutfixed
+        if (parent instanceof HomePengguna) {
+            HomePengguna home = (HomePengguna) parent;
+            home.changeMainPanel(new checkoutfixed());
+        }
+    }//GEN-LAST:event_beliBtnActionPerformed
+
+    private void masukKeranjangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_masukKeranjangBtnActionPerformed
+        String nama = namaDetailLabel.getText();
+        String hargaText = hargaDetailLabel.getText()
+                .replace("Rp", "")
+                .replace(".", "")
+                .trim();
+        int harga = Integer.parseInt(hargaText);
+
+        Cart.tambahItem(new ItemKeranjang(nama, harga, 1));
+
+        // opsional: cuma tutup detail
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_masukKeranjangBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,11 +226,11 @@ public class detailMenu extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton beliBtn;
+    private javax.swing.JLabel hargaDetailLabel;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton masukKeranjangBtn;
+    private javax.swing.JLabel namaDetailLabel;
     // End of variables declaration//GEN-END:variables
 }

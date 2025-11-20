@@ -42,9 +42,9 @@ public class HomePengguna extends javax.swing.JFrame {
     private void initComponents() {
 
         sidePanel = new javax.swing.JPanel();
-        btnPesanan = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        pesananBtn = new javax.swing.JButton();
+        keranjangBtn = new javax.swing.JButton();
+        homeBtn = new javax.swing.JButton();
         basedPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
@@ -54,30 +54,36 @@ public class HomePengguna extends javax.swing.JFrame {
 
         sidePanel.setBackground(new java.awt.Color(51, 204, 255));
 
-        btnPesanan.setBackground(new java.awt.Color(255, 255, 255));
-        btnPesanan.setForeground(new java.awt.Color(0, 0, 0));
-        btnPesanan.setText("Pesanan");
-        btnPesanan.addActionListener(new java.awt.event.ActionListener() {
+        pesananBtn.setBackground(new java.awt.Color(51, 204, 255));
+        pesananBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pesananBtn.setForeground(new java.awt.Color(255, 255, 255));
+        pesananBtn.setText("Pesanan");
+        pesananBtn.setBorder(null);
+        pesananBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesananActionPerformed(evt);
+                pesananBtnActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("Keranjang");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        keranjangBtn.setBackground(new java.awt.Color(51, 204, 255));
+        keranjangBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        keranjangBtn.setForeground(new java.awt.Color(255, 255, 255));
+        keranjangBtn.setText("Keranjang");
+        keranjangBtn.setBorder(null);
+        keranjangBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                keranjangBtnActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Home");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        homeBtn.setBackground(new java.awt.Color(51, 204, 255));
+        homeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        homeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        homeBtn.setText("🧺Home");
+        homeBtn.setBorder(null);
+        homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                homeBtnActionPerformed(evt);
             }
         });
 
@@ -85,26 +91,27 @@ public class HomePengguna extends javax.swing.JFrame {
         sidePanel.setLayout(sidePanelLayout);
         sidePanelLayout.setHorizontalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPesanan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(keranjangBtn)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pesananBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
                 .addGap(93, 93, 93)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(btnPesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pesananBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addComponent(keranjangBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(332, Short.MAX_VALUE))
         );
 
+        basedPanel.setBackground(new java.awt.Color(204, 204, 204));
         basedPanel.setLayout(new java.awt.CardLayout());
 
         mainPanel.setLayout(new java.awt.BorderLayout());
@@ -116,9 +123,9 @@ public class HomePengguna extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(0, 0, 0)
+                .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1115, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,25 +133,25 @@ public class HomePengguna extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesananActionPerformed
+    private void pesananBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesananBtnActionPerformed
 //        new pesananPengguna().setVisible(true);  // buka halaman baru
 //        this.dispose(); 
         changeMainPanel(new pesananPanel());        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPesananActionPerformed
+    }//GEN-LAST:event_pesananBtnActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void keranjangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keranjangBtnActionPerformed
         changeMainPanel(new keranjangPanel());        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_keranjangBtnActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         changeMainPanel(new DaftarMenuPanel());        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_homeBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,10 +181,10 @@ public class HomePengguna extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basedPanel;
-    private javax.swing.JButton btnPesanan;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton homeBtn;
+    private javax.swing.JButton keranjangBtn;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JButton pesananBtn;
     private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }

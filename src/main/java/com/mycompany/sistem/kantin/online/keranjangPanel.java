@@ -8,6 +8,10 @@ package com.mycompany.sistem.kantin.online;
  *
  * @author aryo
  */
+import javax.swing.table.DefaultTableModel;
+import com.mycompany.sistem.kantin.online.Cart;
+import com.mycompany.sistem.kantin.online.ItemKeranjang;
+
 public class keranjangPanel extends javax.swing.JPanel {
 
     /**
@@ -15,9 +19,23 @@ public class keranjangPanel extends javax.swing.JPanel {
      */
     public keranjangPanel() {
         initComponents();
+        isiTabelDariCart();
     }
-    
 
+    private void isiTabelDariCart() {
+        DefaultTableModel model = (DefaultTableModel) tabelKeranjang.getModel();
+        model.setRowCount(0);   // kosongkan tabel
+
+        for (ItemKeranjang item : Cart.getItems()) {
+            model.addRow(new Object[]{
+                item.getNama(), // kolom "Item"
+                item.getHarga(), // kolom "Harga"
+                item.getJumlah(), // kolom "Jumlah"
+                item.getTotal(), // kolom "Subtotal"
+                false // kolom "Aksi" (checkbox)
+            });
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,11 +47,11 @@ public class keranjangPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        btnPesan = new javax.swing.JButton();
+        tabelKeranjang = new javax.swing.JTable();
+        checkoutBtn = new javax.swing.JButton();
         btnPesan1 = new javax.swing.JButton();
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelKeranjang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -45,21 +63,21 @@ public class keranjangPanel extends javax.swing.JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Boolean.class
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelKeranjang);
 
-        btnPesan.setBackground(new java.awt.Color(51, 153, 255));
-        btnPesan.setForeground(new java.awt.Color(255, 255, 255));
-        btnPesan.setText("Checkout");
-        btnPesan.addActionListener(new java.awt.event.ActionListener() {
+        checkoutBtn.setBackground(new java.awt.Color(51, 153, 255));
+        checkoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        checkoutBtn.setText("Checkout");
+        checkoutBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPesanActionPerformed(evt);
+                checkoutBtnActionPerformed(evt);
             }
         });
 
@@ -79,12 +97,12 @@ public class keranjangPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 566, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnPesan1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnPesan, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(checkoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -94,15 +112,19 @@ public class keranjangPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPesan)
+                    .addComponent(checkoutBtn)
                     .addComponent(btnPesan1))
-                .addContainerGap(130, Short.MAX_VALUE))
+                .addContainerGap(291, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPesanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesanActionPerformed
-        new checkout().setVisible(true);
-    }//GEN-LAST:event_btnPesanActionPerformed
+    private void checkoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutBtnActionPerformed
+//        new checkout().setVisible(true);
+        java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
+        if (parent instanceof HomePengguna) {
+            ((HomePengguna) parent).changeMainPanel(new checkoutfixed());
+        }
+    }//GEN-LAST:event_checkoutBtnActionPerformed
 
     private void btnPesan1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesan1ActionPerformed
         // TODO add your handling code here:
@@ -110,9 +132,9 @@ public class keranjangPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnPesan;
     private javax.swing.JButton btnPesan1;
+    private javax.swing.JButton checkoutBtn;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelKeranjang;
     // End of variables declaration//GEN-END:variables
 }

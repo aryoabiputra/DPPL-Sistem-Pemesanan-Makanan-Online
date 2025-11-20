@@ -9,14 +9,100 @@ package com.mycompany.sistem.kantin.online;
  * @author aryo
  */
 public class DaftarMenuPanel extends javax.swing.JPanel {
+//    Card 1
 
-    // simpan gambar asli (full ukuran)
+    private String namaMakanan1 = "Ayam Geprek";
+    private int hargaMakanan1 = 10000;
+//    Card 2
+    private String namaMakanan2 = "Ayam Goreng";
+    private int hargaMakanan2 = 15000;
+//    Card 3
+    private String namaMakanan3 = "Ayam Bakar";
+    private int hargaMakanan3 = 20000;
+    //    Card 4
+    private String namaMakanan4 = "Ayam Goreng";
+    private int hargaMakanan4 = 5000;
+    //    Card 5
+    private String namaMakanan5 = "Ayam Bakar";
+    private int hargaMakanan5 = 2000;
+    //    Card 6
+    private String namaMakanan6 = "Ayam Geprek";
+    private int hargaMakanan6 = 25000;
+    //    Card 7
+    private String namaMakanan7 = "Ayam Goreng";
+    private int hargaMakanan7 = 20000;
+    //    Card 8
+    private String namaMakanan8 = "Ayam Bakar";
+    private int hargaMakanan8 = 10000;
+    //    Card 9
+    private String namaMakanan9 = "Ayam Geprek";
+    private int hargaMakanan9 = 20000;
+    //    Card 10
+    private String namaMakanan10 = "Ayam Bakar";
+    private int hargaMakanan10 = 21000;
+    //    Card 11
+    private String namaMakanan11 = "Ayam Goreng";
+    private int hargaMakanan11 = 12000;
+    //    Card 12
+    private String namaMakanan12 = "Ayam Bakar";
+    private int hargaMakanan12 = 13000;
+
     /**
      * Creates new form pesananPanel
      */
     public DaftarMenuPanel() {
         initComponents();
+        initDataMenu();
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(20);
 
+    }
+
+    public void initDataMenu() {
+        //  Menu 1
+        namaMakananLabel1.setText(namaMakanan1);
+        hargaMakananLabel1.setText("Rp " + hargaMakanan1);
+        //  Menu 2
+        namaMakananLabel2.setText(namaMakanan2);
+        hargaMakananLabel2.setText("Rp " + hargaMakanan2);
+        //  Menu 3
+        namaMakananLabel3.setText(namaMakanan3);
+        hargaMakananLabel3.setText("Rp " + hargaMakanan3);
+        //  Menu 4
+        namaMakananLabel4.setText(namaMakanan4);
+        hargaMakananLabel4.setText("Rp " + hargaMakanan4);
+        //  Menu 5
+        namaMakananLabel5.setText(namaMakanan5);
+        hargaMakananLabel5.setText("Rp " + hargaMakanan5);
+        //  Menu 6
+        namaMakananLabel6.setText(namaMakanan6);
+        hargaMakananLabel6.setText("Rp " + hargaMakanan6);
+        //  Menu 7
+        namaMakananLabel7.setText(namaMakanan7);
+        hargaMakananLabel7.setText("Rp " + hargaMakanan7);
+        //  Menu 8
+        namaMakananLabel8.setText(namaMakanan8);
+        hargaMakananLabel8.setText("Rp " + hargaMakanan8);
+        //  Menu 9
+        namaMakananLabel9.setText(namaMakanan9);
+        hargaMakananLabel9.setText("Rp " + hargaMakanan9);
+        //  Menu 10
+        namaMakananLabel10.setText(namaMakanan10);
+        hargaMakananLabel10.setText("Rp " + hargaMakanan10);
+        //  Menu 11
+        namaMakananLabel11.setText(namaMakanan11);
+        hargaMakananLabel11.setText("Rp " + hargaMakanan11);
+        //  Menu 12
+        namaMakananLabel12.setText(namaMakanan12);
+        hargaMakananLabel12.setText("Rp " + hargaMakanan12);
+        
+    }
+
+    public void tampilkanDetail(String nama, int harga) {
+        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
+        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
+        dialog.setData(nama, harga);
+        dialog.setLocationRelativeTo(parentWindow);
+        dialog.setVisible(true);
     }
 
     /**
@@ -31,46 +117,60 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         mainPanel = new javax.swing.JPanel();
         menu1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        menu2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        menu3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
+        gambarMakanan = new javax.swing.JLabel();
+        hargaMakananLabel1 = new javax.swing.JLabel();
+        namaMakananLabel1 = new javax.swing.JLabel();
         menu4 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        namaMakananLabel4 = new javax.swing.JLabel();
+        hargaMakananLabel4 = new javax.swing.JLabel();
+        menu2 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        namaMakananLabel2 = new javax.swing.JLabel();
+        hargaMakananLabel2 = new javax.swing.JLabel();
         menu5 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        namaMakananLabel5 = new javax.swing.JLabel();
+        hargaMakananLabel5 = new javax.swing.JLabel();
+        menu10 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        menu6 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        menu7 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
+        namaMakananLabel10 = new javax.swing.JLabel();
+        hargaMakananLabel10 = new javax.swing.JLabel();
         menu8 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        namaMakananLabel8 = new javax.swing.JLabel();
+        hargaMakananLabel8 = new javax.swing.JLabel();
+        menu3 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        namaMakananLabel3 = new javax.swing.JLabel();
+        hargaMakananLabel3 = new javax.swing.JLabel();
+        menu6 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
+        namaMakananLabel6 = new javax.swing.JLabel();
+        hargaMakananLabel6 = new javax.swing.JLabel();
         menu9 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        namaMakananLabel9 = new javax.swing.JLabel();
+        hargaMakananLabel9 = new javax.swing.JLabel();
+        SearchBar = new javax.swing.JTextField();
+        menu7 = new javax.swing.JPanel();
+        jLabel28 = new javax.swing.JLabel();
+        namaMakananLabel7 = new javax.swing.JLabel();
+        hargaMakananLabel7 = new javax.swing.JLabel();
+        menu11 = new javax.swing.JPanel();
+        jLabel31 = new javax.swing.JLabel();
+        namaMakananLabel11 = new javax.swing.JLabel();
+        hargaMakananLabel11 = new javax.swing.JLabel();
+        menu12 = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        namaMakananLabel12 = new javax.swing.JLabel();
+        hargaMakananLabel12 = new javax.swing.JLabel();
 
         jScrollPane1.setHorizontalScrollBar(null);
 
+        mainPanel.setBackground(new java.awt.Color(231, 231, 231));
+        mainPanel.setMinimumSize(new java.awt.Dimension(1280, 720));
         mainPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mainPanelMouseClicked(evt);
@@ -84,13 +184,13 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel1.setText("jLabel1");
+        gambarMakanan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        gambarMakanan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        gambarMakanan.setText("jLabel1");
 
-        jLabel2.setText("Rp 20.000");
+        hargaMakananLabel1.setText("20000");
 
-        jLabel13.setText("Ayam Geprek");
+        namaMakananLabel1.setText("sample");
 
         javax.swing.GroupLayout menu1Layout = new javax.swing.GroupLayout(menu1);
         menu1.setLayout(menu1Layout);
@@ -99,30 +199,30 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             .addGroup(menu1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(gambarMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(menu1Layout.createSequentialGroup()
                         .addGroup(menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13)
-                            .addComponent(jLabel2))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(namaMakananLabel1)
+                            .addComponent(hargaMakananLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         menu1Layout.setVerticalGroup(
             menu1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(gambarMakanan, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
+                .addComponent(namaMakananLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(hargaMakananLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        menu2.setBackground(new java.awt.Color(255, 255, 255));
-        menu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        menu4.setBackground(new java.awt.Color(255, 255, 255));
+        menu4.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu2MouseClicked(evt);
+                menu4MouseClicked(evt);
             }
         });
 
@@ -130,9 +230,52 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
         jLabel3.setText("jLabel1");
 
-        jLabel4.setText("Ayam Geprek");
+        namaMakananLabel4.setText("sample");
 
-        jLabel14.setText("Rp 20.000");
+        hargaMakananLabel4.setText("5000");
+
+        javax.swing.GroupLayout menu4Layout = new javax.swing.GroupLayout(menu4);
+        menu4.setLayout(menu4Layout);
+        menu4Layout.setHorizontalGroup(
+            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu4Layout.createSequentialGroup()
+                        .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel4)
+                            .addComponent(hargaMakananLabel4))
+                        .addGap(0, 231, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu4Layout.setVerticalGroup(
+            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel4)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        menu2.setBackground(new java.awt.Color(255, 255, 255));
+        menu2.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu2MouseClicked(evt);
+            }
+        });
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel5.setText("jLabel1");
+
+        namaMakananLabel2.setText("sample");
+
+        hargaMakananLabel2.setText("Rp 20.000");
 
         javax.swing.GroupLayout menu2Layout = new javax.swing.GroupLayout(menu2);
         menu2.setLayout(menu2Layout);
@@ -141,11 +284,11 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             .addGroup(menu2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(menu2Layout.createSequentialGroup()
                         .addGroup(menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel14))
+                            .addComponent(namaMakananLabel2)
+                            .addComponent(hargaMakananLabel2))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -153,12 +296,141 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             menu2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(namaMakananLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(hargaMakananLabel2)
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+
+        menu5.setBackground(new java.awt.Color(255, 255, 255));
+        menu5.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu5MouseClicked(evt);
+            }
+        });
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel7.setText("jLabel1");
+
+        namaMakananLabel5.setText("sample");
+
+        hargaMakananLabel5.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu5Layout = new javax.swing.GroupLayout(menu5);
+        menu5.setLayout(menu5Layout);
+        menu5Layout.setHorizontalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu5Layout.createSequentialGroup()
+                        .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel5)
+                            .addComponent(hargaMakananLabel5))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu5Layout.setVerticalGroup(
+            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menu10.setBackground(new java.awt.Color(255, 255, 255));
+        menu10.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu10MouseClicked(evt);
+            }
+        });
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel9.setText("jLabel1");
+
+        namaMakananLabel10.setText("sample");
+
+        hargaMakananLabel10.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu10Layout = new javax.swing.GroupLayout(menu10);
+        menu10.setLayout(menu10Layout);
+        menu10Layout.setHorizontalGroup(
+            menu10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu10Layout.createSequentialGroup()
+                        .addGroup(menu10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel10)
+                            .addComponent(hargaMakananLabel10))
+                        .addGap(0, 215, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu10Layout.setVerticalGroup(
+            menu10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu10Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel10)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        menu8.setBackground(new java.awt.Color(255, 255, 255));
+        menu8.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu8MouseClicked(evt);
+            }
+        });
+
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel11.setText("jLabel1");
+
+        namaMakananLabel8.setText("sample");
+
+        hargaMakananLabel8.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu8Layout = new javax.swing.GroupLayout(menu8);
+        menu8.setLayout(menu8Layout);
+        menu8Layout.setHorizontalGroup(
+            menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu8Layout.createSequentialGroup()
+                        .addGroup(menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel8)
+                            .addComponent(hargaMakananLabel8))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu8Layout.setVerticalGroup(
+            menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu8Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel8)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         menu3.setBackground(new java.awt.Color(255, 255, 255));
@@ -168,13 +440,13 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel5.setText("jLabel1");
+        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel15.setText("jLabel1");
 
-        jLabel6.setText("Ayam Geprek");
+        namaMakananLabel3.setText("sample");
 
-        jLabel22.setText("Rp 20.000");
+        hargaMakananLabel3.setText("Rp 20.000");
 
         javax.swing.GroupLayout menu3Layout = new javax.swing.GroupLayout(menu3);
         menu3.setLayout(menu3Layout);
@@ -183,195 +455,27 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             .addGroup(menu3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 267, Short.MAX_VALUE)
                     .addGroup(menu3Layout.createSequentialGroup()
                         .addGroup(menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel22))
-                        .addGap(0, 68, Short.MAX_VALUE)))
+                            .addComponent(namaMakananLabel3)
+                            .addComponent(hargaMakananLabel3))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         menu3Layout.setVerticalGroup(
             menu3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menu3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(namaMakananLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        menu4.setBackground(new java.awt.Color(255, 255, 255));
-        menu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu4MouseClicked(evt);
-            }
-        });
-
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel7.setText("jLabel1");
-
-        jLabel8.setText("Ayam Geprek");
-
-        jLabel24.setText("Rp 20.000");
-
-        javax.swing.GroupLayout menu4Layout = new javax.swing.GroupLayout(menu4);
-        menu4.setLayout(menu4Layout);
-        menu4Layout.setHorizontalGroup(
-            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(menu4Layout.createSequentialGroup()
-                        .addGroup(menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel24))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        menu4Layout.setVerticalGroup(
-            menu4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        menu5.setBackground(new java.awt.Color(255, 255, 255));
-        menu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu5MouseClicked(evt);
-            }
-        });
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel9.setText("jLabel1");
-
-        jLabel10.setText("Ayam Geprek");
-
-        jLabel21.setText("Rp 20.000");
-
-        javax.swing.GroupLayout menu5Layout = new javax.swing.GroupLayout(menu5);
-        menu5.setLayout(menu5Layout);
-        menu5Layout.setHorizontalGroup(
-            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(menu5Layout.createSequentialGroup()
-                        .addGroup(menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel21))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        menu5Layout.setVerticalGroup(
-            menu5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel21)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(hargaMakananLabel3)
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         menu6.setBackground(new java.awt.Color(255, 255, 255));
-        menu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu6MouseClicked(evt);
-            }
-        });
-
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel11.setText("jLabel1");
-
-        jLabel12.setText("Ayam Geprek");
-
-        jLabel25.setText("Rp 20.000");
-
-        javax.swing.GroupLayout menu6Layout = new javax.swing.GroupLayout(menu6);
-        menu6.setLayout(menu6Layout);
-        menu6Layout.setHorizontalGroup(
-            menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(menu6Layout.createSequentialGroup()
-                        .addGroup(menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel25))
-                        .addGap(0, 65, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        menu6Layout.setVerticalGroup(
-            menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel25)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        menu7.setBackground(new java.awt.Color(255, 255, 255));
-        menu7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                menu7MouseClicked(evt);
-            }
-        });
-
-        jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
-        jLabel15.setText("jLabel1");
-
-        jLabel16.setText("Ayam Geprek");
-
-        jLabel23.setText("Rp 20.000");
-
-        javax.swing.GroupLayout menu7Layout = new javax.swing.GroupLayout(menu7);
-        menu7.setLayout(menu7Layout);
-        menu7Layout.setHorizontalGroup(
-            menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(menu7Layout.createSequentialGroup()
-                        .addGroup(menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel23))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        menu7Layout.setVerticalGroup(
-            menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel16)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        menu8.setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel18.setBackground(new java.awt.Color(255, 255, 255));
         jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -384,9 +488,9 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
         jLabel19.setText("jLabel1");
 
-        jLabel20.setText("Ayam Geprek");
+        namaMakananLabel6.setText("sample");
 
-        jLabel27.setText("Rp 20.000");
+        hargaMakananLabel6.setText("Rp 20.000");
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -396,34 +500,34 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
-                    .addComponent(jLabel27))
-                .addContainerGap(62, Short.MAX_VALUE))
+                    .addComponent(namaMakananLabel6)
+                    .addComponent(hargaMakananLabel6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel20)
+                .addComponent(namaMakananLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27)
+                .addComponent(hargaMakananLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout menu8Layout = new javax.swing.GroupLayout(menu8);
-        menu8.setLayout(menu8Layout);
-        menu8Layout.setHorizontalGroup(
-            menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu8Layout.createSequentialGroup()
+        javax.swing.GroupLayout menu6Layout = new javax.swing.GroupLayout(menu6);
+        menu6.setLayout(menu6Layout);
+        menu6Layout.setHorizontalGroup(
+            menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        menu8Layout.setVerticalGroup(
-            menu8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(menu8Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        menu6Layout.setVerticalGroup(
+            menu6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu6Layout.createSequentialGroup()
+                .addGap(0, 18, Short.MAX_VALUE)
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -438,9 +542,9 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
         jLabel17.setText("jLabel1");
 
-        jLabel18.setText("Ayam Geprek");
+        namaMakananLabel9.setText("sample");
 
-        jLabel26.setText("Rp 20.000");
+        hargaMakananLabel9.setText("Rp 20.000");
 
         javax.swing.GroupLayout menu9Layout = new javax.swing.GroupLayout(menu9);
         menu9.setLayout(menu9Layout);
@@ -449,11 +553,11 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
             .addGroup(menu9Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(menu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 267, Short.MAX_VALUE)
                     .addGroup(menu9Layout.createSequentialGroup()
                         .addGroup(menu9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel26))
+                            .addComponent(namaMakananLabel9)
+                            .addComponent(hargaMakananLabel9))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -463,62 +567,216 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel18)
+                .addComponent(namaMakananLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel26)
+                .addComponent(hargaMakananLabel9)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTextField1.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
-        jTextField1.setText("Cari makanan");
+        SearchBar.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
+        SearchBar.setText(" Cari makanan");
+        SearchBar.setToolTipText("");
+        SearchBar.setBorder(null);
+        SearchBar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchBarActionPerformed(evt);
+            }
+        });
+
+        menu7.setBackground(new java.awt.Color(255, 255, 255));
+        menu7.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu7MouseClicked(evt);
+            }
+        });
+
+        jLabel28.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel28.setText("jLabel1");
+
+        namaMakananLabel7.setText("sample");
+
+        hargaMakananLabel7.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu7Layout = new javax.swing.GroupLayout(menu7);
+        menu7.setLayout(menu7Layout);
+        menu7Layout.setHorizontalGroup(
+            menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu7Layout.createSequentialGroup()
+                        .addGroup(menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel7)
+                            .addComponent(hargaMakananLabel7))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu7Layout.setVerticalGroup(
+            menu7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel7)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        menu11.setBackground(new java.awt.Color(255, 255, 255));
+        menu11.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu11MouseClicked(evt);
+            }
+        });
+
+        jLabel31.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel31.setText("jLabel1");
+
+        namaMakananLabel11.setText("sample");
+
+        hargaMakananLabel11.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu11Layout = new javax.swing.GroupLayout(menu11);
+        menu11.setLayout(menu11Layout);
+        menu11Layout.setHorizontalGroup(
+            menu11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu11Layout.createSequentialGroup()
+                        .addGroup(menu11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel11)
+                            .addComponent(hargaMakananLabel11))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        menu11Layout.setVerticalGroup(
+            menu11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu11Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel11)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        menu12.setBackground(new java.awt.Color(255, 255, 255));
+        menu12.setPreferredSize(new java.awt.Dimension(279, 238));
+        menu12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                menu12MouseClicked(evt);
+            }
+        });
+
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg"))); // NOI18N
+        jLabel34.setText("jLabel1");
+
+        namaMakananLabel12.setText("sample");
+
+        hargaMakananLabel12.setText("Rp 20.000");
+
+        javax.swing.GroupLayout menu12Layout = new javax.swing.GroupLayout(menu12);
+        menu12.setLayout(menu12Layout);
+        menu12Layout.setHorizontalGroup(
+            menu12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(menu12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(menu12Layout.createSequentialGroup()
+                        .addGroup(menu12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(namaMakananLabel12)
+                            .addComponent(hargaMakananLabel12))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        menu12Layout.setVerticalGroup(
+            menu12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menu12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(namaMakananLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hargaMakananLabel12)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
         mainPanel.setLayout(mainPanelLayout);
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(100, 100, 100)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menu7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(20, 20, 20)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(menu4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(20, 20, 20)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(menu6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addComponent(menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(menu6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menu5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+                            .addComponent(menu4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(menu7, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(menu8, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainPanelLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(menu9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(SearchBar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(menu10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(437, 437, 437))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(15, 15, 15)
+                .addComponent(SearchBar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(menu4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28)
-                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(menu8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(menu7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(menu9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(187, Short.MAX_VALUE))
+                    .addComponent(menu10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(menu5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menu8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menu11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(menu12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menu6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(menu9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addComponent(menu2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(menu3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(312, Short.MAX_VALUE))
         );
+
+        //Custom
+        //String namaMakanan = namaMakananLabel1.getText();
+        ////String hargaMakanan = hargaMakananLabel1.getText();
+        //int harga = Integer.parseInt(hargaMakananLabel1.getText());
 
         jScrollPane1.setViewportView(mainPanel);
 
@@ -526,11 +784,11 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 935, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -539,53 +797,33 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mainPanelMouseClicked
 
     private void menu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu1MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
+       // TODO add your handling code here:
+        tampilkanDetail(namaMakanan1, hargaMakanan1);
     }//GEN-LAST:event_menu1MouseClicked
 
+    private void menu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu4MouseClicked
+        tampilkanDetail(namaMakanan4, hargaMakanan4);
+    }//GEN-LAST:event_menu4MouseClicked
+
+    private void menu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu10MouseClicked
+       tampilkanDetail(namaMakanan10, hargaMakanan10);       // TODO add your handling code here:
+    }//GEN-LAST:event_menu10MouseClicked
+
     private void menu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu2MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
+        tampilkanDetail(namaMakanan2, hargaMakanan2);     // TODO add your handling code here:
     }//GEN-LAST:event_menu2MouseClicked
 
     private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
+      tampilkanDetail(namaMakanan5, hargaMakanan5);       // TODO add your handling code here:
     }//GEN-LAST:event_menu5MouseClicked
 
+    private void menu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu8MouseClicked
+     tampilkanDetail(namaMakanan8, hargaMakanan8);      // TODO add your handling code here:
+    }//GEN-LAST:event_menu8MouseClicked
+
     private void menu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu3MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
+    tampilkanDetail(namaMakanan3, hargaMakanan3);       // TODO add your handling code here:
     }//GEN-LAST:event_menu3MouseClicked
-
-    private void menu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu4MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_menu4MouseClicked
-
-    private void menu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu6MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_menu6MouseClicked
-
-    private void menu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu7MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_menu7MouseClicked
 
     private void jPanel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseClicked
         java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
@@ -595,46 +833,62 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jPanel18MouseClicked
 
     private void menu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu9MouseClicked
-        java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
-        dialog.setLocationRelativeTo(parentWindow);
-        dialog.setVisible(true);        // TODO add your handling code here:
+       tampilkanDetail(namaMakanan9, hargaMakanan9);        // TODO add your handling code here:
     }//GEN-LAST:event_menu9MouseClicked
+
+    private void SearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchBarActionPerformed
+
+    private void menu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu7MouseClicked
+        // TODO add your handling code here:
+        tampilkanDetail(namaMakanan7, hargaMakanan7);
+    }//GEN-LAST:event_menu7MouseClicked
+
+    private void menu11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu11MouseClicked
+        // TODO add your handling code here:
+        tampilkanDetail(namaMakanan11, hargaMakanan11);
+    }//GEN-LAST:event_menu11MouseClicked
+
+    private void menu12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu12MouseClicked
+        // TODO add your handling code here:
+        tampilkanDetail(namaMakanan12, hargaMakanan12);
+    }//GEN-LAST:event_menu12MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
+    private javax.swing.JTextField SearchBar;
+    private javax.swing.JLabel gambarMakanan;
+    private javax.swing.JLabel hargaMakananLabel1;
+    private javax.swing.JLabel hargaMakananLabel10;
+    private javax.swing.JLabel hargaMakananLabel11;
+    private javax.swing.JLabel hargaMakananLabel12;
+    private javax.swing.JLabel hargaMakananLabel2;
+    private javax.swing.JLabel hargaMakananLabel3;
+    private javax.swing.JLabel hargaMakananLabel4;
+    private javax.swing.JLabel hargaMakananLabel5;
+    private javax.swing.JLabel hargaMakananLabel6;
+    private javax.swing.JLabel hargaMakananLabel7;
+    private javax.swing.JLabel hargaMakananLabel8;
+    private javax.swing.JLabel hargaMakananLabel9;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel18;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JPanel menu1;
+    private javax.swing.JPanel menu10;
+    private javax.swing.JPanel menu11;
+    private javax.swing.JPanel menu12;
     private javax.swing.JPanel menu2;
     private javax.swing.JPanel menu3;
     private javax.swing.JPanel menu4;
@@ -643,5 +897,17 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     private javax.swing.JPanel menu7;
     private javax.swing.JPanel menu8;
     private javax.swing.JPanel menu9;
+    private javax.swing.JLabel namaMakananLabel1;
+    private javax.swing.JLabel namaMakananLabel10;
+    private javax.swing.JLabel namaMakananLabel11;
+    private javax.swing.JLabel namaMakananLabel12;
+    private javax.swing.JLabel namaMakananLabel2;
+    private javax.swing.JLabel namaMakananLabel3;
+    private javax.swing.JLabel namaMakananLabel4;
+    private javax.swing.JLabel namaMakananLabel5;
+    private javax.swing.JLabel namaMakananLabel6;
+    private javax.swing.JLabel namaMakananLabel7;
+    private javax.swing.JLabel namaMakananLabel8;
+    private javax.swing.JLabel namaMakananLabel9;
     // End of variables declaration//GEN-END:variables
 }
