@@ -37,9 +37,12 @@
               <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
           </Group>
           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace min="22" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -47,8 +50,11 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="alamatPanel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="106" max="-2" attributes="0"/>
@@ -61,7 +67,7 @@
                   <Component id="pesanBtn" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="batalBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="202" max="32767" attributes="0"/>
+              <EmptySpace pref="174" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,18 +89,18 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="776" max="32767" attributes="0"/>
+                  <EmptySpace pref="782" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace pref="13" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -268,6 +274,14 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Detail Pesanan"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="20" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&gt; Checkout"/>
       </Properties>
     </Component>
   </SubComponents>

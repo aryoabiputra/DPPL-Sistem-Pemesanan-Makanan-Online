@@ -18,12 +18,12 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JLabel;
 
-public class checkoutfixed extends javax.swing.JPanel {
+public class Checkout extends javax.swing.JPanel {
 
     // default metode = Tunai
     private String metodeDipilih = "Tunai";
 
-    public checkoutfixed() {
+    public Checkout() {
         initComponents();
         aturStyleTable();
         isiTabelDariCart();
@@ -91,6 +91,7 @@ public class checkoutfixed extends javax.swing.JPanel {
         transferBtn = new javax.swing.JButton();
         qrisBtn = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         alamatPanel.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -110,16 +111,16 @@ public class checkoutfixed extends javax.swing.JPanel {
                 .addGroup(alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(776, Short.MAX_VALUE))
+                .addContainerGap(782, Short.MAX_VALUE))
         );
         alamatPanelLayout.setVerticalGroup(
             alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(alamatPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         overviewTabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -191,6 +192,9 @@ public class checkoutfixed extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Detail Pesanan");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel5.setText("> Checkout");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -213,14 +217,19 @@ public class checkoutfixed extends javax.swing.JPanel {
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel5)
+                .addGap(18, 18, 18)
                 .addComponent(alamatPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +241,7 @@ public class checkoutfixed extends javax.swing.JPanel {
                     .addComponent(qrisBtn)
                     .addComponent(pesanBtn)
                     .addComponent(batalBtn))
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,8 +277,8 @@ public class checkoutfixed extends javax.swing.JPanel {
 
         // Pindah ke panel Pesanan
         java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
-        if (parent instanceof HomePengguna home) {
-            home.changeMainPanel(new pesananPanel());
+        if (parent instanceof HomeUser home) {
+            home.changeMainPanel(new PesananPanel());
         }
     }//GEN-LAST:event_pesanBtnActionPerformed
 
@@ -293,6 +302,7 @@ public class checkoutfixed extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.ButtonGroup metodeButtonGroup;
     private javax.swing.JTable overviewTabel;

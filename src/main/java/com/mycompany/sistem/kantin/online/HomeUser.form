@@ -29,14 +29,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="sidePanel" min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="basedPanel" pref="641" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="jPanel1" max="32767" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="basedPanel" pref="641" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -45,11 +39,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="sidePanel" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="basedPanel" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="basedPanel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
           </Group>
@@ -68,11 +58,12 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="38" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="keranjangBtn" min="-2" max="-2" attributes="0"/>
-                      <Component id="homeBtn" alignment="1" min="-2" pref="107" max="-2" attributes="0"/>
-                      <Component id="pesananBtn" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
+                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="pesananBtn" alignment="1" max="32767" attributes="0"/>
+                      <Component id="keranjangBtn" alignment="1" max="32767" attributes="0"/>
+                      <Component id="profilBtn" alignment="1" pref="128" max="32767" attributes="0"/>
+                      <Component id="homeBtn" alignment="1" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
               </Group>
@@ -81,13 +72,15 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
                   <Component id="homeBtn" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="pesananBtn" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                   <Component id="keranjangBtn" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace pref="344" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                  <Component id="profilBtn" min="-2" pref="38" max="-2" attributes="0"/>
+                  <EmptySpace pref="244" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -96,18 +89,24 @@
         <Component class="javax.swing.JButton" name="pesananBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="33" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+              <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/fast-delivery (1).png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Pesanan"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
             </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pesananBtnActionPerformed"/>
@@ -116,18 +115,24 @@
         <Component class="javax.swing.JButton" name="keranjangBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="33" type="rgb"/>
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
+              <Font name="Segoe UI" size="16" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/online-shopping.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Keranjang"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
             </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="keranjangBtnActionPerformed"/>
@@ -136,21 +141,56 @@
         <Component class="javax.swing.JButton" name="homeBtn">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="cc" red="33" type="rgb"/>
-            </Property>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI" size="18" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="\ud83e\uddfaHome" containsInvalidXMLChars="true"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="1"/>
             </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/home_1.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Home"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Default Cursor"/>
+            </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="homeBtnActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="profilBtn">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="16" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="0" type="rgb"/>
+            </Property>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/images/profile.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Profil"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="profilBtnActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -174,26 +214,6 @@
           <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBorderLayout"/>
         </Container>
       </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="83" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
     </Container>
   </SubComponents>
 </Form>

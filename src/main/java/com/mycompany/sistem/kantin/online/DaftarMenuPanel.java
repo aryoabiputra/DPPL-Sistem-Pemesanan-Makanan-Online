@@ -94,12 +94,12 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         //  Menu 12
         namaMakananLabel12.setText(namaMakanan12);
         hargaMakananLabel12.setText("Rp " + hargaMakanan12);
-        
+
     }
 
     public void tampilkanDetail(String nama, int harga) {
         java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
+        DetailMenuDialog dialog = new DetailMenuDialog((java.awt.Frame) parentWindow, true);
         dialog.setData(nama, harga);
         dialog.setLocationRelativeTo(parentWindow);
         dialog.setVisible(true);
@@ -576,7 +576,15 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         SearchBar.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
         SearchBar.setText(" Cari makanan");
         SearchBar.setToolTipText("");
-        SearchBar.setBorder(null);
+        SearchBar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        SearchBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                SearchBarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                SearchBarFocusLost(evt);
+            }
+        });
         SearchBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchBarActionPerformed(evt);
@@ -716,7 +724,7 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         mainPanelLayout.setHorizontalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addContainerGap(94, Short.MAX_VALUE)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(menu3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(menu2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -797,7 +805,7 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_mainPanelMouseClicked
 
     private void menu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu1MouseClicked
-       // TODO add your handling code here:
+        // TODO add your handling code here:
         tampilkanDetail(namaMakanan1, hargaMakanan1);
     }//GEN-LAST:event_menu1MouseClicked
 
@@ -806,7 +814,7 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_menu4MouseClicked
 
     private void menu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu10MouseClicked
-       tampilkanDetail(namaMakanan10, hargaMakanan10);       // TODO add your handling code here:
+        tampilkanDetail(namaMakanan10, hargaMakanan10);       // TODO add your handling code here:
     }//GEN-LAST:event_menu10MouseClicked
 
     private void menu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu2MouseClicked
@@ -814,26 +822,26 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_menu2MouseClicked
 
     private void menu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu5MouseClicked
-      tampilkanDetail(namaMakanan5, hargaMakanan5);       // TODO add your handling code here:
+        tampilkanDetail(namaMakanan5, hargaMakanan5);       // TODO add your handling code here:
     }//GEN-LAST:event_menu5MouseClicked
 
     private void menu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu8MouseClicked
-     tampilkanDetail(namaMakanan8, hargaMakanan8);      // TODO add your handling code here:
+        tampilkanDetail(namaMakanan8, hargaMakanan8);      // TODO add your handling code here:
     }//GEN-LAST:event_menu8MouseClicked
 
     private void menu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu3MouseClicked
-    tampilkanDetail(namaMakanan3, hargaMakanan3);       // TODO add your handling code here:
+        tampilkanDetail(namaMakanan3, hargaMakanan3);       // TODO add your handling code here:
     }//GEN-LAST:event_menu3MouseClicked
 
     private void jPanel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseClicked
         java.awt.Window parentWindow = javax.swing.SwingUtilities.getWindowAncestor(this);
-        detailMenu dialog = new detailMenu((java.awt.Frame) parentWindow, true);
+        DetailMenuDialog dialog = new DetailMenuDialog((java.awt.Frame) parentWindow, true);
         dialog.setLocationRelativeTo(parentWindow);
         dialog.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel18MouseClicked
 
     private void menu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menu9MouseClicked
-       tampilkanDetail(namaMakanan9, hargaMakanan9);        // TODO add your handling code here:
+        tampilkanDetail(namaMakanan9, hargaMakanan9);        // TODO add your handling code here:
     }//GEN-LAST:event_menu9MouseClicked
 
     private void SearchBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchBarActionPerformed
@@ -854,6 +862,23 @@ public class DaftarMenuPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         tampilkanDetail(namaMakanan12, hargaMakanan12);
     }//GEN-LAST:event_menu12MouseClicked
+
+    private void SearchBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchBarFocusGained
+        String placeholder = " Cari makanan";
+
+        if (SearchBar.getText().equals(placeholder)) {
+            SearchBar.setText("");
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchBarFocusGained
+
+    private void SearchBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchBarFocusLost
+        String placeholder = " Cari makanan";
+
+        if (SearchBar.getText().trim().isEmpty()) {
+            SearchBar.setText(placeholder);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchBarFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

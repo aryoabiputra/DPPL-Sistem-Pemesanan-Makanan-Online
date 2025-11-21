@@ -1,6 +1,6 @@
 package com.mycompany.sistem.kantin.online;
 
-import com.mycompany.sistem.kantin.online.detailMenu;
+import com.mycompany.sistem.kantin.online.DetailMenuDialog;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,14 +10,14 @@ import com.mycompany.sistem.kantin.online.detailMenu;
  *
  * @author aryo
  */
-public class HomePengguna extends javax.swing.JFrame {
+public class HomeUser extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomePengguna.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeUser.class.getName());
 
     /**
      * Creates new form Home
      */
-    public HomePengguna() {
+    public HomeUser() {
         initComponents();
         changeMainPanel(new DaftarMenuPanel());
     }
@@ -45,9 +45,9 @@ public class HomePengguna extends javax.swing.JFrame {
         pesananBtn = new javax.swing.JButton();
         keranjangBtn = new javax.swing.JButton();
         homeBtn = new javax.swing.JButton();
+        profilBtn = new javax.swing.JButton();
         basedPanel = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -55,36 +55,56 @@ public class HomePengguna extends javax.swing.JFrame {
 
         sidePanel.setBackground(new java.awt.Color(51, 204, 255));
 
-        pesananBtn.setBackground(new java.awt.Color(51, 204, 255));
-        pesananBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        pesananBtn.setForeground(new java.awt.Color(255, 255, 255));
+        pesananBtn.setBackground(new java.awt.Color(255, 255, 255));
+        pesananBtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        pesananBtn.setForeground(new java.awt.Color(0, 0, 0));
+        pesananBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fast-delivery (1).png"))); // NOI18N
         pesananBtn.setText("Pesanan");
-        pesananBtn.setBorder(null);
+        pesananBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pesananBtn.setFocusPainted(false);
         pesananBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pesananBtnActionPerformed(evt);
             }
         });
 
-        keranjangBtn.setBackground(new java.awt.Color(51, 204, 255));
-        keranjangBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        keranjangBtn.setForeground(new java.awt.Color(255, 255, 255));
+        keranjangBtn.setBackground(new java.awt.Color(255, 255, 255));
+        keranjangBtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        keranjangBtn.setForeground(new java.awt.Color(0, 0, 0));
+        keranjangBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/online-shopping.png"))); // NOI18N
         keranjangBtn.setText("Keranjang");
-        keranjangBtn.setBorder(null);
+        keranjangBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        keranjangBtn.setFocusPainted(false);
         keranjangBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 keranjangBtnActionPerformed(evt);
             }
         });
 
-        homeBtn.setBackground(new java.awt.Color(51, 204, 255));
-        homeBtn.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        homeBtn.setForeground(new java.awt.Color(255, 255, 255));
-        homeBtn.setText("🧺Home");
-        homeBtn.setBorder(null);
+        homeBtn.setBackground(new java.awt.Color(255, 255, 255));
+        homeBtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        homeBtn.setForeground(new java.awt.Color(0, 0, 0));
+        homeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/home_1.png"))); // NOI18N
+        homeBtn.setText("Home");
+        homeBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        homeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        homeBtn.setFocusPainted(false);
         homeBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 homeBtnActionPerformed(evt);
+            }
+        });
+
+        profilBtn.setBackground(new java.awt.Color(255, 255, 255));
+        profilBtn.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        profilBtn.setForeground(new java.awt.Color(0, 0, 0));
+        profilBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/profile.png"))); // NOI18N
+        profilBtn.setText("Profil");
+        profilBtn.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        profilBtn.setFocusPainted(false);
+        profilBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                profilBtnActionPerformed(evt);
             }
         });
 
@@ -93,23 +113,26 @@ public class HomePengguna extends javax.swing.JFrame {
         sidePanelLayout.setHorizontalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sidePanelLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(keranjangBtn)
-                    .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pesananBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(pesananBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(keranjangBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(profilBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(homeBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(14, 14, 14))
         );
         sidePanelLayout.setVerticalGroup(
             sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
+                .addGap(162, 162, 162)
                 .addComponent(homeBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addComponent(pesananBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addGap(18, 18, 18)
                 .addComponent(keranjangBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(profilBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(244, Short.MAX_VALUE))
         );
 
         basedPanel.setBackground(new java.awt.Color(204, 204, 204));
@@ -118,41 +141,21 @@ public class HomePengguna extends javax.swing.JFrame {
         mainPanel.setLayout(new java.awt.BorderLayout());
         basedPanel.add(mainPanel, "card2");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 83, Short.MAX_VALUE)
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 0, 0))))
+                .addGap(0, 0, 0)
+                .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(sidePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(basedPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, 0))
         );
 
@@ -162,16 +165,20 @@ public class HomePengguna extends javax.swing.JFrame {
     private void pesananBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesananBtnActionPerformed
 //        new pesananPengguna().setVisible(true);  // buka halaman baru
 //        this.dispose(); 
-        changeMainPanel(new pesananPanel());        // TODO add your handling code here:
+        changeMainPanel(new PesananPanel());        // TODO add your handling code here:
     }//GEN-LAST:event_pesananBtnActionPerformed
 
     private void keranjangBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keranjangBtnActionPerformed
-        changeMainPanel(new keranjangPanel());        // TODO add your handling code here:
+        changeMainPanel(new KeranjangPanel());        // TODO add your handling code here:
     }//GEN-LAST:event_keranjangBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
         changeMainPanel(new DaftarMenuPanel());        // TODO add your handling code here:
     }//GEN-LAST:event_homeBtnActionPerformed
+
+    private void profilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilBtnActionPerformed
+        changeMainPanel(new ProfilPanel());         // TODO add your handling code here:
+    }//GEN-LAST:event_profilBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,17 +202,17 @@ public class HomePengguna extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new HomePengguna().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new HomeUser().setVisible(true));
     }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel basedPanel;
     private javax.swing.JButton homeBtn;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton keranjangBtn;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JButton pesananBtn;
+    private javax.swing.JButton profilBtn;
     private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }

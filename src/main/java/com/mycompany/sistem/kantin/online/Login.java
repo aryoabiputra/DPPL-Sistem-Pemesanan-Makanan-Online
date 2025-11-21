@@ -7,13 +7,23 @@ package com.mycompany.sistem.kantin.online;
 /**
  *
  * @author aryo
+ *
  */
-import javax.swing.ImageIcon;
-import java.awt.Image;
-
+//import javax.swing.ImageIcon;
+//import java.awt.Image;
 public class Login extends javax.swing.JFrame {
-
+//v2
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+
+    //Username dan sandi untuk 'kantin'
+    String kantinName = "kantin";
+    String kantinPassword = "kantin123";
+
+    //Username dan sandi untuk 'kurir'
+    String kurirName = "kurir";
+    String kurirPassword = "kurir123";
+
+    String status = "";
 
     /**
      * Creates new form NewJFrame
@@ -35,16 +45,16 @@ public class Login extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         loginSebagai = new javax.swing.ButtonGroup();
         btnLogin = new javax.swing.JButton();
-        inputUsername1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        userNameBar = new javax.swing.JTextField();
+        lupaPasswordBtn = new javax.swing.JLabel();
+        daftarLabel = new javax.swing.JLabel();
+        passwordBar = new javax.swing.JPasswordField();
         icon = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jToggleButton3 = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        kantinBtn = new javax.swing.JToggleButton();
+        kurirBtn = new javax.swing.JToggleButton();
+        userBtn = new javax.swing.JToggleButton();
 
         jMenu1.setText("jMenu1");
 
@@ -61,47 +71,86 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        inputUsername1.setFont(new java.awt.Font("Fira Sans", 0, 18)); // NOI18N
-        inputUsername1.addActionListener(new java.awt.event.ActionListener() {
+        userNameBar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        userNameBar.setText(" Masukkan User Name");
+        userNameBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                userNameBarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                userNameBarFocusLost(evt);
+            }
+        });
+        userNameBar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputUsername1ActionPerformed(evt);
+                userNameBarActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Lupa password?");
+        lupaPasswordBtn.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
+        lupaPasswordBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lupaPasswordBtn.setText("Lupa password?");
+        lupaPasswordBtn.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lupaPasswordBtnMouseClicked(evt);
+            }
+        });
 
-        jLabel2.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Belum punya akun? Daftar sekarang");
+        daftarLabel.setFont(new java.awt.Font("Fira Sans", 0, 14)); // NOI18N
+        daftarLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        daftarLabel.setText("Belum punya akun? Daftar sekarang");
+        daftarLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                daftarLabelMouseClicked(evt);
+            }
+        });
+
+        passwordBar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        passwordBar.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordBarFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordBarFocusLost(evt);
+            }
+        });
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 3, 6, 0));
 
-        jToggleButton2.setBackground(new java.awt.Color(51, 153, 255));
-        loginSebagai.add(jToggleButton2);
-        jToggleButton2.setFont(new java.awt.Font("Fira Sans", 1, 14)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton2.setText("Tenant");
-
-        jToggleButton3.setBackground(new java.awt.Color(51, 153, 255));
-        loginSebagai.add(jToggleButton3);
-        jToggleButton3.setFont(new java.awt.Font("Fira Sans", 1, 17)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setText("Kurir");
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+        kantinBtn.setBackground(new java.awt.Color(51, 153, 255));
+        loginSebagai.add(kantinBtn);
+        kantinBtn.setFont(new java.awt.Font("Fira Sans", 1, 17)); // NOI18N
+        kantinBtn.setForeground(new java.awt.Color(255, 255, 255));
+        kantinBtn.setText("Kantin");
+        kantinBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
+                kantinBtnActionPerformed(evt);
             }
         });
 
-        jToggleButton1.setBackground(new java.awt.Color(51, 153, 255));
-        loginSebagai.add(jToggleButton1);
-        jToggleButton1.setFont(new java.awt.Font("Fira Sans", 1, 17)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jToggleButton1.setText("User");
+        kurirBtn.setBackground(new java.awt.Color(51, 153, 255));
+        loginSebagai.add(kurirBtn);
+        kurirBtn.setFont(new java.awt.Font("Fira Sans", 1, 17)); // NOI18N
+        kurirBtn.setForeground(new java.awt.Color(255, 255, 255));
+        kurirBtn.setText("Kurir");
+        kurirBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kurirBtnActionPerformed(evt);
+            }
+        });
+
+        userBtn.setBackground(new java.awt.Color(51, 153, 255));
+        loginSebagai.add(userBtn);
+        userBtn.setFont(new java.awt.Font("Fira Sans", 1, 17)); // NOI18N
+        userBtn.setForeground(new java.awt.Color(255, 255, 255));
+        userBtn.setText("User");
+        userBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -115,22 +164,22 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
+                            .addComponent(lupaPasswordBtn)
                             .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputUsername1)
+                            .addComponent(userNameBar)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(userBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(6, 6, 6)
-                                .addComponent(jToggleButton2)
-                                .addGap(6, 6, 6)
-                                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(kantinBtn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(kurirBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(15, 15, 15)
-                                .addComponent(jLabel2))
-                            .addComponent(jPasswordField1))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                                .addComponent(daftarLabel))
+                            .addComponent(passwordBar))))
+                .addContainerGap(47, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,41 +196,170 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(78, 78, 78)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jToggleButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(userBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kurirBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kantinBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)))
-                .addComponent(inputUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userNameBar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(passwordBar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addGap(20, 20, 20)
+                .addComponent(lupaPasswordBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addGap(94, 94, 94))
+                .addGap(18, 18, 18)
+                .addComponent(daftarLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void inputUsername1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputUsername1ActionPerformed
+    private void userNameBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameBarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputUsername1ActionPerformed
+    }//GEN-LAST:event_userNameBarActionPerformed
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+    private void kurirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kurirBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    }//GEN-LAST:event_kurirBtnActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        new HomePengguna().setVisible(true);  // buka halaman baru
-        this.dispose();        // TODO add your handling code here:
+
+        // ambil input dari textfield
+        String username = userNameBar.getText();
+
+        // ambil input password (JPasswordField)
+        char[] passwordChars = passwordBar.getPassword();
+        String password = new String(passwordChars);
+
+        // username & password yang dianggap benar (sementara hardcode)
+        // cek
+        switch (status) {
+            //Jika masuk sebagai User
+            case "user":
+                AkunUser akun = DaftarAkunUser.cekLogin(username, password);
+
+                if (akun != null) {
+                    // simpan user yang sedang login
+                    SessionUser.setCurrentUser(akun);
+
+                    // buka HomeUser
+                    new HomeUser().setVisible(true);
+                    this.dispose();
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(
+                            this,
+                            "Username atau password salah!",
+                            "Login gagal",
+                            javax.swing.JOptionPane.ERROR_MESSAGE
+                    );
+                }
+                break;
+
+            //Jika masuk sebagai Kantin
+            case "kantin":
+                if (username.equals(kantinName) && password.equals(kantinPassword)) {
+                    // Ketika login berhasil
+                    new HomeKantin().setVisible(true);
+                    this.dispose(); // tutup form login
+                } else {
+                    // login gagal
+                    javax.swing.JOptionPane.showMessageDialog(
+                            this,
+                            "Username atau password salah!",
+                            "Login gagal",
+                            javax.swing.JOptionPane.ERROR_MESSAGE
+                    );
+                }
+
+                break;
+
+            //Jika masuk sebagai Kurir
+            case "kurir":
+                if (username.equals(kurirName) && password.equals(kurirPassword)) {
+                    // Ketika login berhasil
+                    new HomeKurir().setVisible(true);
+                    this.dispose(); // tutup form login
+                } else {
+                    // login gagal
+                    javax.swing.JOptionPane.showMessageDialog(
+                            this,
+                            "Username atau password salah!",
+                            "Login gagal",
+                            javax.swing.JOptionPane.ERROR_MESSAGE
+                    );
+                }
+
+                break;
+
+            default:
+                //Jika kategori tidak dipilih
+                javax.swing.JOptionPane.showMessageDialog(
+                        this,
+                        "Anda login sebagai apa?!",
+                        "Login gagal",
+                        javax.swing.JOptionPane.ERROR_MESSAGE
+                );
+//                throw new AssertionError();
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void userBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userBtnActionPerformed
+        status = "user";        // TODO add your handling code here:
+    }//GEN-LAST:event_userBtnActionPerformed
+
+    private void kantinBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kantinBtnActionPerformed
+        status = "kantin";       // TODO add your handling code here:
+    }//GEN-LAST:event_kantinBtnActionPerformed
+
+    private void lupaPasswordBtnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lupaPasswordBtnMouseClicked
+        new HomeUser().setVisible(true);
+        this.dispose();         // TODO add your handling code here:
+    }//GEN-LAST:event_lupaPasswordBtnMouseClicked
+
+    private void daftarLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_daftarLabelMouseClicked
+        BuatAkun dialog = new BuatAkun(this, true);
+        dialog.setLocationRelativeTo(this); // biar muncul di tengah window login
+        dialog.setVisible(true);
+    }//GEN-LAST:event_daftarLabelMouseClicked
+
+    private void userNameBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameBarFocusGained
+        String placeholder = " Masukkan User Name";
+
+        if (userNameBar.getText().equals(placeholder)) {
+            userNameBar.setText("");
+
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_userNameBarFocusGained
+
+    private void passwordBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordBarFocusLost
+//        String placeholder = " Masukkan password";
+//
+//        if (passwordBar.getText().trim().isEmpty()) {
+//            passwordBar.setText(placeholder);
+//        }         // TODO add your handling code here:
+    }//GEN-LAST:event_passwordBarFocusLost
+
+    private void userNameBarFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_userNameBarFocusLost
+        String placeholder = " Masukkan User Name";
+
+        if (userNameBar.getText().trim().isEmpty()) {
+            userNameBar.setText(placeholder);
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_userNameBarFocusLost
+
+    private void passwordBarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordBarFocusGained
+//        String placeholder = " Masukkan password";
+//
+//        if (passwordBar.getText().equals(placeholder)) {
+//            passwordBar.setText("");
+//
+//        }       // TODO add your handling code here:
+    }//GEN-LAST:event_passwordBarFocusGained
 
     /**
      * @param args the command line arguments
@@ -210,17 +388,17 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
+    private javax.swing.JLabel daftarLabel;
     private javax.swing.JLabel icon;
-    private javax.swing.JTextField inputUsername1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
-    private javax.swing.JToggleButton jToggleButton3;
+    private javax.swing.JToggleButton kantinBtn;
+    private javax.swing.JToggleButton kurirBtn;
     private javax.swing.ButtonGroup loginSebagai;
+    private javax.swing.JLabel lupaPasswordBtn;
+    private javax.swing.JPasswordField passwordBar;
+    private javax.swing.JToggleButton userBtn;
+    private javax.swing.JTextField userNameBar;
     // End of variables declaration//GEN-END:variables
 }

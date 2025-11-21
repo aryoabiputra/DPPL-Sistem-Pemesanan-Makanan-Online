@@ -11,14 +11,14 @@ package com.mycompany.sistem.kantin.online;
 import com.mycompany.sistem.kantin.online.Cart;
 import com.mycompany.sistem.kantin.online.ItemKeranjang;
 
-public class detailMenu extends javax.swing.JDialog {
+public class DetailMenuDialog extends javax.swing.JDialog {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(detailMenu.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DetailMenuDialog.class.getName());
 
     /**
      * Creates new form detailMenu
      */
-    public detailMenu(java.awt.Frame parent, boolean modal) {
+    public DetailMenuDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -49,6 +49,8 @@ public class detailMenu extends javax.swing.JDialog {
         setTitle("Detail Menu");
         setBackground(new java.awt.Color(255, 255, 255));
 
+        masukKeranjangBtn.setBackground(new java.awt.Color(255, 255, 255));
+        masukKeranjangBtn.setForeground(new java.awt.Color(0, 0, 0));
         masukKeranjangBtn.setText("Masuk Keranjang");
         masukKeranjangBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,8 +68,10 @@ public class detailMenu extends javax.swing.JDialog {
         namaDetailLabel.setFont(new java.awt.Font("Fira Sans", 0, 22)); // NOI18N
         namaDetailLabel.setText("Ayam Geprek");
 
-        jLabel2.setText("Warung Kita");
+        jLabel2.setText("deskripsi makanan.....");
 
+        beliBtn.setBackground(new java.awt.Color(51, 153, 255));
+        beliBtn.setForeground(new java.awt.Color(255, 255, 255));
         beliBtn.setText("Beli");
         beliBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,7 +106,7 @@ public class detailMenu extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(namaDetailLabel)
@@ -115,7 +119,7 @@ public class detailMenu extends javax.swing.JDialog {
                             .addComponent(beliBtn)
                             .addComponent(masukKeranjangBtn)))
                     .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
@@ -139,10 +143,10 @@ public class detailMenu extends javax.swing.JDialog {
 //        // 4. Tambah ke keranjang
 //        Cart.tambahItem(new ItemKeranjang(nama, harga, jumlah));
 //
-//        // 5. Pindah main panel di HomePengguna ke KeranjangPanel
+//        // 5. Pindah main panel di HomeUser ke KeranjangPanel
 //        java.awt.Window owner = getOwner();      // owner = frame yang bikin dialog ini
-//        if (owner instanceof HomePengguna) {
-//            HomePengguna home = (HomePengguna) owner;
+//        if (owner instanceof HomeUser) {
+//            HomeUser home = (HomeUser) owner;
 //            home.changeMainPanel(new keranjangPanel());   // nama panel keranjangmu
 //        }
 //
@@ -161,16 +165,16 @@ public class detailMenu extends javax.swing.JDialog {
         // 2. Tambahkan ke Cart, default jumlah = 1
         Cart.tambahItem(new ItemKeranjang(nama, harga, 1));
 
-        // 3. Cari parent window (HomePengguna)
+        // 3. Cari parent window (HomeUser)
         java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
 
         // 4. Tutup dialog dulu
         this.dispose();
 
-        // 5. Kalau parent-nya HomePengguna, ganti main panel ke checkoutfixed
-        if (parent instanceof HomePengguna) {
-            HomePengguna home = (HomePengguna) parent;
-            home.changeMainPanel(new checkoutfixed());
+        // 5. Kalau parent-nya HomeUser, ganti main panel ke Checkout
+        if (parent instanceof HomeUser) {
+            HomeUser home = (HomeUser) parent;
+            home.changeMainPanel(new Checkout());
         }
     }//GEN-LAST:event_beliBtnActionPerformed
 
@@ -213,7 +217,7 @@ public class detailMenu extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                detailMenu dialog = new detailMenu(new javax.swing.JFrame(), true);
+                DetailMenuDialog dialog = new DetailMenuDialog(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

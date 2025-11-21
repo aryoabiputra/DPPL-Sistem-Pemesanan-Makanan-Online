@@ -21,12 +21,12 @@ import java.awt.Dimension;
  *
  * @author aryo
  */
-public class pesananPanel extends javax.swing.JPanel {
+public class PesananPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form pesananPanel
      */
-    public pesananPanel() {
+    public PesananPanel() {
         initComponents();
 //        isiDariPesananTerakhir();
         tampilkanSemuaPesanan();

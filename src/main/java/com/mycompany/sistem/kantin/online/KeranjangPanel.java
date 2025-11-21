@@ -16,12 +16,12 @@ import javax.swing.table.JTableHeader;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JLabel;
 
-public class keranjangPanel extends javax.swing.JPanel {
+public class KeranjangPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form pesananPanel
      */
-    public keranjangPanel() {
+    public KeranjangPanel() {
         initComponents();
         aturStyleTable();
         isiTabelDariCart();
@@ -74,6 +74,7 @@ public class keranjangPanel extends javax.swing.JPanel {
         tabelKeranjang = new javax.swing.JTable();
         checkoutBtn = new javax.swing.JButton();
         btnPesan1 = new javax.swing.JButton();
+        keranjangLabel = new javax.swing.JLabel();
 
         tabelKeranjang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -116,6 +117,9 @@ public class keranjangPanel extends javax.swing.JPanel {
             }
         });
 
+        keranjangLabel.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        keranjangLabel.setText("> Keranjang");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -128,27 +132,32 @@ public class keranjangPanel extends javax.swing.JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnPesan1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(checkoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(checkoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(keranjangLabel)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(10, 10, 10)
+                .addComponent(keranjangLabel)
+                .addGap(42, 42, 42)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkoutBtn)
                     .addComponent(btnPesan1))
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(240, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void checkoutBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkoutBtnActionPerformed
-//        new checkout().setVisible(true);
+//        new Checkout().setVisible(true);
         java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
-        if (parent instanceof HomePengguna) {
-            ((HomePengguna) parent).changeMainPanel(new checkoutfixed());
+        if (parent instanceof HomeUser) {
+            ((HomeUser) parent).changeMainPanel(new Checkout());
         }
     }//GEN-LAST:event_checkoutBtnActionPerformed
 
@@ -161,6 +170,7 @@ public class keranjangPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPesan1;
     private javax.swing.JButton checkoutBtn;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel keranjangLabel;
     private javax.swing.JTable tabelKeranjang;
     // End of variables declaration//GEN-END:variables
 }

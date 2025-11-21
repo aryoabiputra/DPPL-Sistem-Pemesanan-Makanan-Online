@@ -14,12 +14,12 @@ import java.util.List;
  *
  * @author aryo
  */
-public class pesananPanel1 extends javax.swing.JPanel {
+public class PesananPanel1 extends javax.swing.JPanel {
 
     /**
      * Creates new form pesananPanel
      */
-    public pesananPanel1() {
+    public PesananPanel1() {
         initComponents();
         isiDariPesananTerakhir();
     }
