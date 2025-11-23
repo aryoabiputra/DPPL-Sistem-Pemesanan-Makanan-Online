@@ -6,16 +6,14 @@ package sistemkantinonline.tampilanuser;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.BoxLayout;
 import javax.swing.Box;
-import javax.swing.BorderFactory;
-import javax.swing.table.DefaultTableModel;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
+import java.util.List;
+import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+import java.awt.BorderLayout;
+
 
 /**
  *
@@ -23,20 +21,41 @@ import java.awt.Dimension;
  */
 public class PesananPanel extends javax.swing.JPanel {
 
+    private JPanel listPanel;
+
     /**
      * Creates new form pesananPanel
      */
     public PesananPanel() {
         initComponents();
-//        isiDariPesananTerakhir();
-        tampilkanSemuaPesanan();
+        initCustom();
+        loadData();
     }
 
-    private void tampilkanSemuaPesanan() {
+    private void initCustom() {
+        listPanel = new JPanel();
+        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
+        scrollPane.setViewportView(listPanel);
+    }
+
+    private void loadData() {
         listPanel.removeAll();
 
-        for (DataPesanan p : DataPesanan.getRiwayat()) {
-            JPanel card = buatCard(p);
+        for (Pesanan p : DataPesanan.getRiwayat()) {
+
+            PesananCardPanel card = new PesananCardPanel();
+            card.setData(
+                    p.getNoPesanan(),
+                    p.getAlamat(),
+                    p.getMetode(),
+                    p.getItems(),
+                    p.getTotal()
+            );
+
+            JPanel wrapper = new JPanel(new BorderLayout());
+            wrapper.setBorder(BorderFactory.createEmptyBorder(0, 20, 0, 20));
+            wrapper.add(card, BorderLayout.CENTER);
+
             listPanel.add(card);
             listPanel.add(Box.createVerticalStrut(15));
         }
@@ -44,90 +63,34 @@ public class PesananPanel extends javax.swing.JPanel {
         listPanel.revalidate();
         listPanel.repaint();
     }
-
-    private JPanel buatCard(DataPesanan pesanan) {
-    JPanel card = new JPanel();
-    card.setBackground(Color.WHITE);
-    card.setBorder(
-        BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(Color.LIGHT_GRAY),
-            BorderFactory.createEmptyBorder(10, 10, 10, 10)
-        )
-    );
-    card.setLayout(new BorderLayout(10, 10));
-
-    // ====== HEADER: Alamat Pengiriman ======
-    JPanel header = new JPanel();
-    header.setOpaque(false);
-    header.setLayout(new BoxLayout(header, BoxLayout.Y_AXIS));
-
-    JLabel lblAlamatTitle = new JLabel("Alamat Pengiriman");
-    lblAlamatTitle.setFont(lblAlamatTitle.getFont().deriveFont(java.awt.Font.BOLD));
-    JLabel lblAlamat = new JLabel("Jl. Bangau Sakti"); // sementara hardcode
-
-    header.add(lblAlamatTitle);
-    header.add(lblAlamat);
-
-    card.add(header, BorderLayout.NORTH);
-
-    // ====== TENGAH: Gambar + Detail ======
-    JPanel center = new JPanel(new BorderLayout(10, 10));
-    center.setOpaque(false);
-
-    // Gambar di kiri
-    JLabel gambar = new JLabel(new ImageIcon(getClass().getResource("/images/ayam-geprek.jpeg")));
-    gambar.setPreferredSize(new Dimension(180, 180));
-    center.add(gambar, BorderLayout.WEST);
-
-    // Panel kanan: info + tabel
-    JPanel right = new JPanel();
-    right.setOpaque(false);
-    right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-
-    JLabel lblNo = new JLabel("Nomor Pesanan : " + pesanan.getNoPesanan());
-    JLabel lblMetode = new JLabel("Metode Pembayaran : " + pesanan.getMetodePembayaran());
-    JLabel lblTotal = new JLabel("Total : Rp " + pesanan.getTotal());
-
-    lblNo.setAlignmentX(JLabel.LEFT_ALIGNMENT);
-    lblMetode.setAlignmentX(JLabel.LEFT_ALIGNMENT);
-    lblTotal.setAlignmentX(JLabel.LEFT_ALIGNMENT);
-
-    right.add(lblNo);
-    right.add(lblMetode);
-    right.add(lblTotal);
-    right.add(Box.createVerticalStrut(8));
-
-    // ====== TABEL ITEM (kecil) ======
-    String[] col = { "Item", "Harga", "Jumlah", "Subtotal" };
-    DefaultTableModel model = new DefaultTableModel(col, 0);
-
-    for (ItemKeranjang item : pesanan.getItems()) {
-        model.addRow(new Object[]{
-            item.getNama(),
-            item.getHarga(),
-            item.getJumlah(),
-            item.getTotal()
-        });
-    }
-
-    JTable table = new JTable(model);
-    table.setEnabled(false);
-    table.setRowHeight(22);
-
-    JScrollPane tableScroll = new JScrollPane(table);
-    tableScroll.setPreferredSize(new Dimension(500, 70));        // tinggi tabel
-    tableScroll.setMaximumSize(new Dimension(Integer.MAX_VALUE, 90));
-    tableScroll.setAlignmentX(JScrollPane.LEFT_ALIGNMENT);
-
-    right.add(tableScroll);
-
-    center.add(right, BorderLayout.CENTER);
-
-    card.add(center, BorderLayout.CENTER);
-
-    return card;
-}
-
+//
+//    // tambah 1 pesanan (1 card) ke dalam panel
+//    public void tambahPesanan(int noPesanan, String alamat, String metodePembayaran, List<PesananItem> items, int total) {
+//        PesananCardPanel card = new PesananCardPanel();
+//        card.setData(noPesanan, alamat, metodePembayaran, items, total);
+//
+//        listPanel.add(card);
+//        listPanel.add(Box.createVerticalStrut(15)); // jarak antar card
+//
+//        listPanel.revalidate();
+//        listPanel.repaint();
+//    }
+//
+//    public void resetPesanan() {
+//        listPanel.removeAll();
+//        listPanel.revalidate();
+//        listPanel.repaint();
+//    }
+//
+//    // inisialisasi panel penampung card pesanan
+//    private void initCustomComponents() {
+//        listPanel = new JPanel();
+//        listPanel.setLayout(new BoxLayout(listPanel, BoxLayout.Y_AXIS));
+//        listPanel.setBackground(Color.WHITE);
+//
+//        // pasang listPanel ke scrollPane yang sudah ada di form
+//        scrollPane.setViewportView(listPanel);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,10 +102,6 @@ public class PesananPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         scrollPane = new javax.swing.JScrollPane();
-        listPanel = new javax.swing.JPanel();
-
-        listPanel.setLayout(new javax.swing.BoxLayout(listPanel, javax.swing.BoxLayout.Y_AXIS));
-        scrollPane.setViewportView(listPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -158,7 +117,6 @@ public class PesananPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel listPanel;
     private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

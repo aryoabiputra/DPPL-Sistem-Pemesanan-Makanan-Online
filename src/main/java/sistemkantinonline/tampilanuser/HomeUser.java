@@ -1,7 +1,5 @@
 package sistemkantinonline.tampilanuser;
 
-import sistemkantinonline.tampilanuser.DetailMenuDialog;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -172,7 +170,8 @@ public class HomeUser extends javax.swing.JFrame {
     }//GEN-LAST:event_keranjangBtnActionPerformed
 
     private void homeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeBtnActionPerformed
-        changeMainPanel(new DaftarMenuPanel());        // TODO add your handling code here:
+//        changeMainPanel(new DaftarMenuPanel()); 
+        changeMainPanel(new DaftarMenuPanel());// TODO add your handling code here:
     }//GEN-LAST:event_homeBtnActionPerformed
 
     private void profilBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profilBtnActionPerformed

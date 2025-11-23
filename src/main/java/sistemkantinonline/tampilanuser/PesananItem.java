@@ -8,13 +8,13 @@ package sistemkantinonline.tampilanuser;
  *
  * @author aryop
  */
-public class ItemKeranjang {
+public class PesananItem {
 
     private String nama;
     private int harga;
     private int jumlah;
 
-    public ItemKeranjang(String nama, int harga, int jumlah) {
+    public PesananItem(String nama, int harga, int jumlah) {
         this.nama = nama;
         this.harga = harga;
         this.jumlah = jumlah;
@@ -32,15 +32,7 @@ public class ItemKeranjang {
         return jumlah;
     }
 
-    public void setJumlah(int j) {
-        jumlah = j;
-    }
-
-    public int getTotal() {
+    public int getSubtotal() {
         return harga * jumlah;
-    }
-
-    public PesananItem toPesananItem() {
-        return new PesananItem(nama, harga, jumlah);
     }
 }

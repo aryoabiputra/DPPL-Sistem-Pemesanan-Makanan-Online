@@ -13,12 +13,14 @@ import sistemkantinonline.tampilanuser.PesananPanel;
 import sistemkantinonline.tampilanuser.ItemKeranjang;
 import sistemkantinonline.tampilanuser.DataPesanan;
 import java.util.List;
+import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.JLabel;
 import sistemkantinonline.BuatNomorPesanan;
+import javax.swing.JOptionPane;
 
 public class Checkout extends javax.swing.JPanel {
 
@@ -27,30 +29,31 @@ public class Checkout extends javax.swing.JPanel {
 
     public Checkout() {
         initComponents();
+        isiTabel();
         aturStyleTable();
-        isiTabelDariCart();
     }
 
-    private int hitungTotalDariCart() {
-        int total = 0;
-        for (ItemKeranjang item : Cart.getItems()) {
-            total += item.getTotal();
-        }
-        return total;
-    }
+    private void isiTabel() {
+        var model = (javax.swing.table.DefaultTableModel) overviewTabel.getModel();
+        model.setRowCount(0);
 
-    private void isiTabelDariCart() {
-        DefaultTableModel model = (DefaultTableModel) overviewTabel.getModel();
-        model.setRowCount(0); // kosongkan dulu
-
-        for (ItemKeranjang item : Cart.getItems()) {
+        for (ItemKeranjang i : Cart.getItems()) {
             model.addRow(new Object[]{
-                item.getNama(), // kolom "Nama"
-                item.getHarga(), // kolom "Harga"
-                item.getJumlah(), // kolom "Jumlah"
-                item.getTotal() // kolom "Subtotal"
+                i.getNama(),
+                i.getHarga(),
+                i.getJumlah(),
+                i.getTotal()
             });
         }
+    }
+
+
+    private int hitungTotal() {
+        int t = 0;
+        for (ItemKeranjang i : Cart.getItems()) {
+            t += i.getTotal();
+        }
+        return t;
     }
 
     private void aturStyleTable() {
@@ -97,7 +100,7 @@ public class Checkout extends javax.swing.JPanel {
 
         alamatPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Alamat Pengantaran");
 
@@ -113,7 +116,7 @@ public class Checkout extends javax.swing.JPanel {
                 .addGroup(alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel1))
-                .addContainerGap(782, Short.MAX_VALUE))
+                .addContainerGap(723, Short.MAX_VALUE))
         );
         alamatPanelLayout.setVerticalGroup(
             alamatPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,6 +143,7 @@ public class Checkout extends javax.swing.JPanel {
         jScrollPane1.setViewportView(overviewTabel);
 
         batalBtn.setBackground(new java.awt.Color(51, 153, 255));
+        batalBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         batalBtn.setForeground(new java.awt.Color(255, 255, 255));
         batalBtn.setText("Batal");
         batalBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -149,6 +153,7 @@ public class Checkout extends javax.swing.JPanel {
         });
 
         pesanBtn.setBackground(new java.awt.Color(51, 153, 255));
+        pesanBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         pesanBtn.setForeground(new java.awt.Color(255, 255, 255));
         pesanBtn.setText("Pesan");
         pesanBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -157,10 +162,11 @@ public class Checkout extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Metode Pembayaran");
 
         tunaiBtn.setBackground(new java.awt.Color(51, 153, 255));
+        tunaiBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         tunaiBtn.setForeground(new java.awt.Color(255, 255, 255));
         tunaiBtn.setText("Tunai");
         metodeButtonGroup.add(tunaiBtn);
@@ -171,6 +177,7 @@ public class Checkout extends javax.swing.JPanel {
         });
 
         transferBtn.setBackground(new java.awt.Color(51, 153, 255));
+        transferBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         transferBtn.setForeground(new java.awt.Color(255, 255, 255));
         transferBtn.setText(" Transfer Bank");
         metodeButtonGroup.add(transferBtn);
@@ -181,6 +188,7 @@ public class Checkout extends javax.swing.JPanel {
         });
 
         qrisBtn.setBackground(new java.awt.Color(51, 153, 255));
+        qrisBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         qrisBtn.setForeground(new java.awt.Color(255, 255, 255));
         qrisBtn.setText("Qris");
         metodeButtonGroup.add(qrisBtn);
@@ -190,7 +198,7 @@ public class Checkout extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Detail Pesanan");
 
@@ -202,27 +210,28 @@ public class Checkout extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(alamatPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
-                .addComponent(tunaiBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(transferBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(qrisBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(batalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(pesanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59))
             .addComponent(jScrollPane1)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(tunaiBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(transferBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(qrisBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(batalBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(pesanBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +252,7 @@ public class Checkout extends javax.swing.JPanel {
                     .addComponent(qrisBtn)
                     .addComponent(pesanBtn)
                     .addComponent(batalBtn))
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -252,36 +261,33 @@ public class Checkout extends javax.swing.JPanel {
     }//GEN-LAST:event_batalBtnActionPerformed
 
     private void pesanBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesanBtnActionPerformed
-        // Ambil item dari keranjang
-        List<ItemKeranjang> items = Cart.getItems();
 
-        if (items.isEmpty()) {
-            javax.swing.JOptionPane.showMessageDialog(this,
-                    "Keranjang masih kosong.", "Info",
-                    javax.swing.JOptionPane.INFORMATION_MESSAGE);
+        if (Cart.getItems().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Keranjang kosong!");
             return;
         }
 
-        // Metode pembayaran dipilih (Tunai / Transfer Bank / Qris)
+        int no = BuatNomorPesanan.next();
+        String alamat = jLabel2.getText();
         String metode = metodeDipilih;
 
-        // Hitung total
-        int total = hitungTotalDariCart();
+        List<PesananItem> listItem = new ArrayList<>();
+        for (ItemKeranjang i : Cart.getItems()) {
+            listItem.add(i.toPesananItem());
+        }
 
-        // Generate kode pesanan otomatis
-        String noPesanan = BuatNomorPesanan.next();  // A001, A002, dst
+        int total = hitungTotal();
 
-        // Simpan KE RIWAYAT pesanan
-        DataPesanan.tambahPesanan(items, metode, total, noPesanan);
+        Pesanan p = new Pesanan(no, alamat, metode, total, listItem);
+        DataPesanan.tambahPesanan(p);
 
-        // Kosongkan keranjang setelah pesan
         Cart.kosongkan();
 
-        // Pindah ke panel Pesanan
-        java.awt.Window parent = javax.swing.SwingUtilities.getWindowAncestor(this);
+        var parent = javax.swing.SwingUtilities.getWindowAncestor(this);
         if (parent instanceof HomeUser home) {
-            home.changeMainPanel(new PesananPanel());
+            home.changeMainPanel(new PesananPanel()); // pakai panel final
         }
+    
     }//GEN-LAST:event_pesanBtnActionPerformed
 
     private void tunaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tunaiBtnActionPerformed
