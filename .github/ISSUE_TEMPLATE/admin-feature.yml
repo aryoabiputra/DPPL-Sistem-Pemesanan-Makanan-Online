@@ -1,0 +1,74 @@
+name: Fitur Admin - Manajemen Kantin
+description: Tambah / update fitur untuk Admin (kelola menu, pesanan, laporan, dll)
+title: "[ADMIN] "
+labels: ["feature", "admin"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## ✨ Fitur Admin - Sistem Kantin Online
+
+        Gunakan template ini untuk menambahkan / mengubah fitur yang berhubungan dengan **Admin**,
+        misalnya:
+        - tambah / edit / hapus menu
+        - kelola tenant
+        - lihat & terima pesanan
+        - laporan transaksi, dsb.
+
+  - type: input
+    id: ringkasan
+    attributes:
+      label: Ringkasan Fitur
+      description: Jelaskan singkat fitur admin yang ingin dibuat / diubah.
+      placeholder: Contoh: Admin bisa menambah menu baru untuk tenant X
+    validations:
+      required: true
+
+  - type: textarea
+    id: detail
+    attributes:
+      label: Deskripsi Detail
+      description: Jelaskan alur fitur, dari sudut pandang Admin.
+      placeholder: |
+        - Admin buka Dashboard Admin
+        - Admin pilih tenant A
+        - Admin klik "Tambah Menu"
+        - Admin isi nama, harga, stok, estimasi waktu masak
+        - Data tersimpan dan muncul di sisi user saat pesan
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope Perubahan (File/Class Terkait)
+      description: Sebutkan file atau class yang kemungkinan besar terpengaruh.
+      placeholder: |
+        - sistemkantinonline.tampilanuser.MenuCardPanel
+        - sistemkantinonline.tampilanuser.DataPesanan
+        - sistemkantinonline.tampilanuser.Pesanan
+        - panel Admin (jika sudah ada)
+    validations:
+      required: false
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: Kapan fitur ini dianggap selesai?
+      placeholder: |
+        - Admin bisa menambah menu baru dan muncul di halaman user
+        - Edit & hapus menu berjalan tanpa error
+        - Data tersimpan dengan benar di DataPesanan / database
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist Task
+      options:
+        - label: Desain UI halaman Admin
+        - label: Tambah logic di sisi backend (model/data)
+        - label: Hubungkan UI dengan data (event handler, tombol, dsb)
+        - label: Testing manual alur fitur Admin
