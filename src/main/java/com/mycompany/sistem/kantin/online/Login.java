@@ -1,4 +1,6 @@
 package com.mycompany.sistem.kantin.online;
+import com.mycompany.sistem.kantin.online.HomeTenant;
+import com.mycompany.sistem.kantin.online.HomePengguna;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -10,6 +12,7 @@ package com.mycompany.sistem.kantin.online;
  */
 import javax.swing.ImageIcon;
 import java.awt.Image;
+import javax.swing.JOptionPane;
 
 public class Login extends javax.swing.JFrame {
 
@@ -179,8 +182,48 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        new HomePengguna().setVisible(true);  // buka halaman baru
-        this.dispose();        // TODO add your handling code here:
+        String username = inputUsername1.getText();
+        String password = new String(jPasswordField1.getPassword());
+    
+        // 1. VALIDASI KOSONG
+        if (username.isEmpty() || password.isEmpty() || loginSebagai.getSelection() == null) {
+        JOptionPane.showMessageDialog(this, 
+                "Username, Password, dan Peran wajib diisi.", 
+                "Login Gagal", JOptionPane.ERROR_MESSAGE);
+        return; 
+    } 
+    
+        final String MOCK_TENANT_USER = "tenant123";
+        final String MOCK_TENANT_PASS = "admin";
+    
+        // 2. CEK PERAN & KREDENSIAL
+        if (jToggleButton2.isSelected()) { // TENANT
+            if (username.equals(MOCK_TENANT_USER) && password.equals(MOCK_TENANT_PASS)) {
+                 // BERHASIL SEBAGAI TENANT -> BUKA FRAME TENANT
+                new HomeTenant().setVisible(true);
+                this.dispose(); // Tutup frame login
+        } else {
+            JOptionPane.showMessageDialog(this,
+                    "Login Tenant gagal. Cek username/password.",
+                    "Akses Ditolak", JOptionPane.ERROR_MESSAGE);
+        }
+    
+        } else if (jToggleButton1.isSelected()) { // PENGGUNA (USER)
+        if (username.equals("user123") && password.equals("user")) {
+            // BERHASIL SEBAGAI PENGGUNA -> BUKA FRAME PENGGUNA
+            new HomePengguna().setVisible(true);
+            this.dispose(); // Tutup frame login
+        } else {
+            JOptionPane.showMessageDialog(this, 
+                    "Login Pengguna gagal. Cek username/password.", 
+                    "Akses Ditolak", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        } else if (jToggleButton3.isSelected()) { // KURIR
+        JOptionPane.showMessageDialog(this,
+                "Akses untuk peran Kurir belum diimplementasikan.",
+                "Info", JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**
