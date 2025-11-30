@@ -54,8 +54,6 @@ public class HomePengguna extends javax.swing.JFrame {
 
         sidePanel.setBackground(new java.awt.Color(51, 204, 255));
 
-        btnPesanan.setBackground(new java.awt.Color(255, 255, 255));
-        btnPesanan.setForeground(new java.awt.Color(0, 0, 0));
         btnPesanan.setText("Pesanan");
         btnPesanan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,8 +61,6 @@ public class HomePengguna extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("Keranjang");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,8 +68,6 @@ public class HomePengguna extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("Home");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

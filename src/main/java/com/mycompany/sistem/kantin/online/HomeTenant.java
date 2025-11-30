@@ -1,5 +1,4 @@
 package com.mycompany.sistem.kantin.online;
-import com.tenant.katin.ui.TenantDashboard;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
