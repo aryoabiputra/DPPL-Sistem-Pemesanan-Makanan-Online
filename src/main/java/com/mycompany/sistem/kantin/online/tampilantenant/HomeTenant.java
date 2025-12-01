@@ -2,30 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package com.mycompany.sistem.kantin.online.tampilankantin;
+package com.mycompany.sistem.kantin.online.tampilantenant;
 
 import java.awt.*;
 import javax.swing.*;
-import com.mycompany.sistem.kantin.online.tampilankantin.DaftarPesananTenant;
-import com.mycompany.sistem.kantin.online.tampilankantin.LaporanPenjualan;
-import com.mycompany.sistem.kantin.online.tampilankantin.ManajemenMenu;
-import com.mycompany.sistem.kantin.online.tampilankantin.EditProfilTenant;
+import com.mycompany.sistem.kantin.online.tampilantenant.DaftarPesananTenant;
+import com.mycompany.sistem.kantin.online.tampilantenant.LaporanPenjualan;
+import com.mycompany.sistem.kantin.online.tampilantenant.ManajemenMenu;
+import com.mycompany.sistem.kantin.online.tampilantenant.EditProfilTenant;
 /**
  *
  * @author riald
  */
-public class HomeKantin extends javax.swing.JFrame {
+public class HomeTenant extends javax.swing.JFrame {
     
     private JPanel sidebarPanel;
     private JPanel contentPanel;
     private CardLayout cardLayout;
     
     private JButton btnMenu, btnPesanan, btnLaporan;
+        private void updateSidebarProfile() {
+        String currentNama = "Rialdi";
+        String currentKantin = "Kantin MBG";
+        
+        this.setTitle("Dashboard Pemilik Kantin - " + currentNama);
+    }
 
     /**
      * Creates new form HomeKantin
      */
-    public HomeKantin() {
+    public HomeTenant() {
         setTitle("Dashboard Pemilik Kantin");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1000, 700);
@@ -44,6 +50,7 @@ public class HomeKantin extends javax.swing.JFrame {
         button.setBackground(Color.WHITE);
         return button;
     }
+
     private void setupCustomComponents() {
         getContentPane().setLayout(new BorderLayout());
         
@@ -66,11 +73,43 @@ public class HomeKantin extends javax.swing.JFrame {
         btnPesanan = createNavButton("Daftar Pesanan");
         btnLaporan = createNavButton("Laporan Penjualan");
         
+        JButton btnProfileDisplay = createNavButton("Aryo - Kantin"); 
+    
+        // Atur font/gaya agar terlihat seperti judul
+        btnProfileDisplay.setFont(new Font("Tahoma", Font.BOLD, 14));
+        btnProfileDisplay.setBackground(new Color(0, 150, 255)); // Warna sidebar
+        btnProfileDisplay.setForeground(Color.WHITE); // Warna teks
+        btnProfileDisplay.setBorderPainted(false); // Hapus border
+
+        // Tambahkan ke Sidebar, di bagian paling atas
+        sidebarPanel.add(Box.createVerticalStrut(10)); // Spasi atas
+        sidebarPanel.add(btnProfileDisplay);
+        sidebarPanel.add(Box.createVerticalStrut(20)); // Spasi ke tombol menu
+        
         sidebarPanel.add(Box.createVerticalStrut(20));
         sidebarPanel.add(btnMenu);
         sidebarPanel.add(btnPesanan);
         sidebarPanel.add(btnLaporan);
         sidebarPanel.add(Box.createVerticalGlue());
+        
+        JButton btnLogout = createNavButton("Logout");
+        sidebarPanel.add(Box.createVerticalGlue());
+        sidebarPanel.add(btnLogout);
+        sidebarPanel.add(Box.createVerticalStrut(20));
+        btnLogout.addActionListener(e -> {
+            this.dispose();
+            new com.mycompany.sistem.kantin.online.Login().setVisible(true);
+        });
+        JButton btnProfil = createNavButton("Edit Profil");
+        sidebarPanel.add(btnProfil);
+        btnProfil.addActionListener(e -> {
+            new com.mycompany.sistem.kantin.online.tampilantenant.EditProfilTenant(this, true).setVisible(true);
+        });
+        
+        JButton btnEditProfil = createNavButton("Edit Profil");
+        btnEditProfil.addActionListener(e -> {
+            new com.mycompany.sistem.kantin.online.tampilantenant.EditProfilTenant(this, true).setVisible(true);
+        });
         
         btnMenu.addActionListener(e -> {
             cardLayout.show(contentPanel, "MENU");
@@ -132,20 +171,21 @@ public class HomeKantin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeKantin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTenant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeKantin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTenant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeKantin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTenant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeKantin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(HomeTenant.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomeKantin().setVisible(true);
+                new HomeTenant().setVisible(true);
             }
         });
     }
