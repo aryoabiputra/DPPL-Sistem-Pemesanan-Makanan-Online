@@ -9,8 +9,8 @@ import sistemkantinonline.dataakun.SessionUser;
 import sistemkantinonline.dataakun.SessionKantin;
 import sistemkantinonline.tampilanuser.HomeUser;
 import sistemkantinonline.tampilankantin.HomeKantin;
-import sistemkantinonline.HomeKurir;
-
+import sistemkantinonline.tampilankurir.KurirDashboard;
+import sistemkantinonline.tampilankurir.Kurir;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -25,15 +25,12 @@ import sistemkantinonline.HomeKurir;
 //import java.awt.Image;
 public class Login extends javax.swing.JFrame {
 //v2
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
 
-    //Username dan sandi untuk 'kantin'
-    String kantinName = "k";
-    String kantinPassword = "k";
-
     //Username dan sandi untuk 'kurir'
-    String kurirName = "kurir";
-    String kurirPassword = "kurir123";
+    String kurirName = "k";
+    String kurirPassword = "k";
 
     String status = "";
 
@@ -248,7 +245,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_userNameBarActionPerformed
 
     private void kurirBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kurirBtnActionPerformed
-        // TODO add your handling code here:
+        status = "kurir";        // TODO add your handling code here:
     }//GEN-LAST:event_kurirBtnActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
@@ -285,7 +282,7 @@ public class Login extends javax.swing.JFrame {
                 break;
 
             //Jika masuk sebagai Kantin
-             case "kantin":
+            case "kantin":
                 AkunKantin akunKantin = DaftarAkunKantin.cekLogin(username, password);
 
                 if (akunKantin != null) {
@@ -303,12 +300,32 @@ public class Login extends javax.swing.JFrame {
                             javax.swing.JOptionPane.ERROR_MESSAGE
                     );
                 }
-                break;   
-                
-//            case "kantin":
-//                if (username.equals(kantinName) && password.equals(kantinPassword)) {
+                break;
+
+            //Jika masuk sebagai Kurir
+            //Jika masuk sebagai Kurir
+            case "kurir":
+                if (username.equals(kurirName) && password.equals(kurirPassword)) {
+                    // Buat objek Kurir (sementara pakai dummy dulu)
+                    Kurir kurir = new Kurir(1, "Kurir " + username);
+
+                    // Buka dashboard kurir dengan data kurir
+                    new KurirDashboard(kurir).setVisible(true);
+                    this.dispose(); // tutup form login
+                } else {
+                    javax.swing.JOptionPane.showMessageDialog(
+                            this,
+                            "Username atau password salah!",
+                            "Login gagal",
+                            javax.swing.JOptionPane.ERROR_MESSAGE
+                    );
+                }
+                break;
+
+//            case "kurir":
+//                if (username.equals(kurirName) && password.equals(kurirPassword)) {
 //                    // Ketika login berhasil
-//                    new HomeKantin().setVisible(true);
+//                    new KurirDashboard().setVisible(true);
 //                    this.dispose(); // tutup form login
 //                } else {
 //                    // login gagal
@@ -321,25 +338,6 @@ public class Login extends javax.swing.JFrame {
 //                }
 //
 //                break;
-
-            //Jika masuk sebagai Kurir
-            case "kurir":
-                if (username.equals(kurirName) && password.equals(kurirPassword)) {
-                    // Ketika login berhasil
-                    new HomeKurir().setVisible(true);
-                    this.dispose(); // tutup form login
-                } else {
-                    // login gagal
-                    javax.swing.JOptionPane.showMessageDialog(
-                            this,
-                            "Username atau password salah!",
-                            "Login gagal",
-                            javax.swing.JOptionPane.ERROR_MESSAGE
-                    );
-                }
-
-                break;
-
             default:
                 //Jika kategori tidak dipilih
                 javax.swing.JOptionPane.showMessageDialog(
