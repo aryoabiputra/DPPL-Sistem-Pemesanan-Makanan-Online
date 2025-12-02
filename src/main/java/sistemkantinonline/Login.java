@@ -322,22 +322,6 @@ public class Login extends javax.swing.JFrame {
                 }
                 break;
 
-//            case "kurir":
-//                if (username.equals(kurirName) && password.equals(kurirPassword)) {
-//                    // Ketika login berhasil
-//                    new KurirDashboard().setVisible(true);
-//                    this.dispose(); // tutup form login
-//                } else {
-//                    // login gagal
-//                    javax.swing.JOptionPane.showMessageDialog(
-//                            this,
-//                            "Username atau password salah!",
-//                            "Login gagal",
-//                            javax.swing.JOptionPane.ERROR_MESSAGE
-//                    );
-//                }
-//
-//                break;
             default:
                 //Jika kategori tidak dipilih
                 javax.swing.JOptionPane.showMessageDialog(
